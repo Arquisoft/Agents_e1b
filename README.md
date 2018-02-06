@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/Arquisoft/participants1a/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/participants1a)
 
 
-# participants1a
+# Agents_e1b2
 
 [![Join the chat at https://gitter.im/Arquisoft/participants1a](https://badges.gitter.im/Arquisoft/participants1a.svg)](https://gitter.im/Arquisoft/participants1a?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -53,6 +53,6 @@ Usuarios de prueba para la aplicación:
 
 # Current year authors
 - UO246305, Esteban Montes Morales
-- UO251090, Mario Del Olmo Díaz
+- UO251626, Lucía de la Granda Prieto
 - UO252406, Pablo Menéndez Suárez
 - UO251782, Sara Grimaldos Rodríguez
