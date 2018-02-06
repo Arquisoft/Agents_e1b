@@ -9,7 +9,7 @@
 
 Skeleton of participants module
 
-# Authors
+# Old c
 
 - David Lorenzo González (UO244795)
 - Martín Peláez Díaz (UO236974)
