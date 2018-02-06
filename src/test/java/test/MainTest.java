@@ -100,15 +100,15 @@ public class MainTest {
 
 		response = template.postForEntity(userURI, new PeticionInfoREST("paco@hotmail.com", "123456"), String.class);
 		assertThat(response.getBody(), equalTo(
-				"{\"firstName\":\"Paco\",\"lastName\":\"Gómez\",\"edad\":46,\"email\":\"paco@hotmail.com\",\"id\":\"12345678A\"}"));
+				"{\"firstName\":\"Paco\",\"lastName\":\"Gómez\",\"edad\":47,\"email\":\"paco@hotmail.com\",\"id\":\"12345678A\"}"));
 
 		response = template.postForEntity(userURI, new PeticionInfoREST("pepe@gmail.com", "123456"), String.class);
 		assertThat(response.getBody(), equalTo(
-				"{\"firstName\":\"Pepe\",\"lastName\":\"Fernández\",\"edad\":41,\"email\":\"pepe@gmail.com\",\"id\":\"87654321B\"}"));
+				"{\"firstName\":\"Pepe\",\"lastName\":\"Fernández\",\"edad\":42,\"email\":\"pepe@gmail.com\",\"id\":\"87654321B\"}"));
 
 		response = template.postForEntity(userURI, new PeticionInfoREST("carmen@yahoo.com", "123456"), String.class);
 		assertThat(response.getBody(), equalTo(
-				"{\"firstName\":\"Carmen\",\"lastName\":\"López\",\"edad\":46,\"email\":\"carmen@yahoo.com\",\"id\":\"11223344C\"}"));
+				"{\"firstName\":\"Carmen\",\"lastName\":\"López\",\"edad\":47,\"email\":\"carmen@yahoo.com\",\"id\":\"11223344C\"}"));
 	}
 
 	@Test
