@@ -6,13 +6,19 @@
 
 Agents e1b
 
-# Original authors
+# Authors (2016/2017)
 
 - David Lorenzo González (UO244795)
 - Martín Peláez Díaz (UO236974)
 - Laura Menéndez Pérez (UO244646)
 - Fernando Palazuelo Ginzo (UO244588)
 
+# Authors (2017/2018)
+
+- Esteban Montes Morales (UO246305)
+- Lucía de la Granda Prieto (UO251626)
+- Pablo Menéndez Suárez (UO252406)
+- Sara Grimaldos Rodríguez (UO251782)
 
 Usuarios de prueba para la aplicación:
 
@@ -48,8 +54,3 @@ Usuarios de prueba para la aplicación:
  Dirección: Avenida Galicia
  Nacionalidad: Española
 
-# Current year authors
-- UO246305, Esteban Montes Morales
-- UO251626, Lucía de la Granda Prieto
-- UO252406, Pablo Menéndez Suárez
-- UO251782, Sara Grimaldos Rodríguez
