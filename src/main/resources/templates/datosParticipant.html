@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+ 	<meta charset="UTF-8"/>
+ 	<title>Datos personales</title>
+</head>
+<body>
+<h1>Datos personales</h1>
+	<form method="POST" action="confirmEmail" >
+		<label for="email"><strong>Correo:</strong> </label>
+		<input type="text" name="email" th:value="${session.participant.email}"/>
+		<input type="submit" name="cambiarEmail" value="Cambiar email"/>
+	</form>
+	
+	<p><strong>Nombre:</strong> <span th:text="${session.participant.nombre}"></span></p>
+	<p><strong>Apellidos:</strong> <span th:text="${session.participant.apellidos}"></span></p>
+	<p><strong>DNI:</strong> <span th:text="${session.participant.DNI}"></span></p>
+	<p><strong>Edad:</strong> <span th:text="${session.edad}"></span></p>
+	<p><strong>Direccion:</strong> <span th:text="${session.participant.direccion}"></span></p>
+	
+	<i><span th:if="${info != null}" th:text="${info}">Info</span></i>
+	
+	<br/>
+	<br/>
+	<form method="POST" action="changeInfo" >
+		<input type="submit" name="cambiarContraseña" value="Cambiar contraseña"/>
+	</form>
+</body>
+</html>

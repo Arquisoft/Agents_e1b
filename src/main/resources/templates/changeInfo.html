@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+ 	<meta charset="UTF-8"/>
+ 	<title>Cambiar contraseña</title>
+</head>
+<body>
+<h1>Cambiar contraseña</h1>
+<form method="POST" action="confirmPassword" >
+	<table>
+		<tr>
+			<td><strong><label for="password">Contraseña: </label></strong></td>
+			<td><input type="password" name="password" /></td>
+		</tr>
+		<tr>
+			<td><strong><label for="newPassword">Nueva contraseña: </label></strong></td>
+			<td><input type="password" name="newPassword"/></td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" name="confirmarCambio" value="Confirmar cambio"/></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>
