@@ -9,7 +9,7 @@
 
 Skeleton of participants module
 
-# Old Authors
+# Original authors
 
 - David Lorenzo González (UO244795)
 - Martín Peláez Díaz (UO236974)
@@ -51,4 +51,8 @@ Usuarios de prueba para la aplicación:
  Dirección: Avenida Galicia
  Nacionalidad: Española
 
-
+# Current year authors
+- UO246305, Esteban Montes Morales
+- UO251090, Mario Del Olmo Díaz
+- UO252406, Pablo Menéndez Suárez
+- UO251782, Sara Grimaldos Rodríguez
