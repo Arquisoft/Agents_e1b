@@ -3,7 +3,7 @@ package asw.participants.webService.responses;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import asw.dbManagement.model.Participant;
+import asw.dbManagement.model.Agent;
 import asw.participants.util.Utilidades;
 
 @XmlRootElement(name = "participant")
@@ -17,7 +17,7 @@ public class RespuestaInfoREST {
 	
 	public RespuestaInfoREST() {}
 	
-	public RespuestaInfoREST(Participant participant){
+	public RespuestaInfoREST(Agent participant){
 		setFirstName(participant.getNombre());
 		setLastName(participant.getApellidos());
 		setEdad(Utilidades.getEdad(participant.getFechaNacimiento()));

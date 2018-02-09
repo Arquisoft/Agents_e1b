@@ -10,6 +10,8 @@ import asw.participants.webService.responses.errors.UnknownErrorResponse;
 import asw.participants.webService.responses.errors.UserNotFoundResponse;
 import asw.participants.webService.responses.errors.WrongEmailStyleErrorResponse;
 
+//
+
 //Creacion de los distintos tipos de error.
 public class ErrorFactory {
 

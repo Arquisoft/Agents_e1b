@@ -1,12 +1,12 @@
 package asw.dbManagement;
 
-import asw.dbManagement.model.Participant;
+import asw.dbManagement.model.Agent;
 
-public interface GetParticipant {
+public interface GetAgent {
 	/**
 	 * Permite la solicitud la de información para el usuario.
 	 */
-	public Participant getParticipant(String email);
+	public Agent getAgent(String email);
 	
 	
 	

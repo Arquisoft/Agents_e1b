@@ -1,6 +1,6 @@
 package asw.participants.util;
 
-import asw.dbManagement.model.Participant;
+import asw.dbManagement.model.Agent;
 import asw.participants.factory.ErrorFactory;
 import asw.participants.factory.ErrorFactory.Errors;
 
@@ -47,14 +47,14 @@ public class Assert {
 	 * @param participant
 	 * @return devuelve false si no es null o excepcion
 	 */
-	public static boolean isParticipantNull(Participant participant){
+	public static boolean isParticipantNull(Agent participant){
 		if (participant == null) {
 			throw ErrorFactory.getError(Errors.USER_NOT_FOUND);
 		}
 		return false;		
 	}
 	
-	public static boolean isPasswordCorrect(String password,Participant participant){
+	public static boolean isPasswordCorrect(String password,Agent participant){
 		if (!password.equals(participant.getPassword())) {
 			throw ErrorFactory.getError(Errors.INCORRECT_PASSWORD_DO_NOT_MATCH);
 		}
