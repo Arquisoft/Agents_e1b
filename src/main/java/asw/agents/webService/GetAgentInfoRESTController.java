@@ -1,4 +1,4 @@
-package asw.participants.webService;
+package asw.agents.webService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,19 +10,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import asw.agents.GetAgentInfo;
+import asw.agents.util.Assert;
+import asw.agents.webService.request.PeticionInfoREST;
+import asw.agents.webService.responses.RespuestaInfoREST;
+import asw.agents.webService.responses.errors.ErrorResponse;
 import asw.dbManagement.GetAgent;
 import asw.dbManagement.model.Agent;
-import asw.participants.GetParticipantInfo;
-import asw.participants.util.Assert;
-import asw.participants.webService.request.PeticionInfoREST;
-import asw.participants.webService.responses.RespuestaInfoREST;
-import asw.participants.webService.responses.errors.ErrorResponse;
 
 @RestController
-public class GetParticipantInfoRESTController implements GetParticipantInfo {
+public class GetAgentInfoRESTController implements GetAgentInfo {
 
 	@Autowired
-	private GetAgent getParticipant;
+	private GetAgent getAgent;
 
 	@Override
 	@RequestMapping(value = "/user", method = RequestMethod.POST, headers = { "Accept=application/json",
@@ -33,18 +33,18 @@ public class GetParticipantInfoRESTController implements GetParticipantInfo {
 		Assert.isEmailValid(peticion.getLogin());
 		Assert.isPasswordEmpty(peticion.getPassword());
 
-		Agent participant = getParticipant.getParticipant(peticion.getLogin());
+		Agent agent = getAgent.getAgent(peticion.getLogin());
 
-		Assert.isParticipantNull(participant);
+		Assert.isParticipantNull(agent);
 
-		Assert.isPasswordCorrect(peticion.getPassword(), participant);
+		Assert.isPasswordCorrect(peticion.getPassword(), agent);
 
 		/*
 		 * Añadimos la información al modelo, para que se muestre en la pagina
-		 * html: datosParticipant
+		 * html: (datosAgente|agentData).html
 		 */
 
-		return new ResponseEntity<RespuestaInfoREST>(new RespuestaInfoREST(participant), HttpStatus.OK);
+		return new ResponseEntity<RespuestaInfoREST>(new RespuestaInfoREST(agent), HttpStatus.OK);
 	}
 
 	@ExceptionHandler(ErrorResponse.class)

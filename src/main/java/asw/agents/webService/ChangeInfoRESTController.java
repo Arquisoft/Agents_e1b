@@ -1,4 +1,4 @@
-package asw.participants.webService;
+package asw.agents.webService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import asw.agents.ChangeInfo;
+import asw.agents.util.Assert;
+import asw.agents.webService.request.PeticionChangeEmailREST;
+import asw.agents.webService.request.PeticionChangePasswordREST;
+import asw.agents.webService.responses.RespuestaChangeInfoREST;
+import asw.agents.webService.responses.errors.ErrorResponse;
 import asw.dbManagement.GetAgent;
 import asw.dbManagement.UpdateInfo;
 import asw.dbManagement.model.Agent;
-import asw.participants.ChangeInfo;
-import asw.participants.util.Assert;
-import asw.participants.webService.request.PeticionChangeEmailREST;
-import asw.participants.webService.request.PeticionChangePasswordREST;
-import asw.participants.webService.responses.RespuestaChangeInfoREST;
-import asw.participants.webService.responses.errors.ErrorResponse;
 
 @RestController
 public class ChangeInfoRESTController implements ChangeInfo {
 
 	@Autowired
-	private GetAgent getParticipant;
+	private GetAgent getAgent;
 	@Autowired
 	private UpdateInfo updateInfo;
 
@@ -44,7 +44,7 @@ public class ChangeInfoRESTController implements ChangeInfo {
 		
 		Assert.isSamePassword(password, newPassword);	
 
-		Agent p = getParticipant.getParticipant(email);
+		Agent p = getAgent.getAgent(email);
 		Assert.isParticipantNull(p);
 		Assert.isPasswordCorrect(password, p);
 
@@ -72,7 +72,7 @@ public class ChangeInfoRESTController implements ChangeInfo {
 
 		Assert.isPasswordEmpty(password);
 		
-		Agent p = getParticipant.getParticipant(email);
+		Agent p = getAgent.getAgent(email);
 		Assert.isParticipantNull(p);
 		Assert.isPasswordCorrect(password, p);
 		

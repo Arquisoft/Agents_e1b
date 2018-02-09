@@ -1,4 +1,4 @@
-package asw.participants.webService.request;
+package asw.agents.webService.request;
 
 public class PeticionChangePasswordREST {
 

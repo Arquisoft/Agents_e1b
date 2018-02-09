@@ -1,8 +1,8 @@
-package asw.participants.util;
+package asw.agents.util;
 
+import asw.agents.factory.ErrorFactory;
+import asw.agents.factory.ErrorFactory.Errors;
 import asw.dbManagement.model.Agent;
-import asw.participants.factory.ErrorFactory;
-import asw.participants.factory.ErrorFactory.Errors;
 
 public class Assert {
 

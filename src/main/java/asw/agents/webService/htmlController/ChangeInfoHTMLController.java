@@ -1,4 +1,4 @@
-package asw.participants.webService.htmlController;
+package asw.agents.webService.htmlController;
 
 import javax.servlet.http.HttpSession;
 
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import asw.agents.util.Assert;
 import asw.dbManagement.UpdateInfo;
 import asw.dbManagement.model.Agent;
-import asw.participants.util.Assert;
-import asw.participants.webService.responses.errors.ErrorResponse;
+import asw.agents.webService.responses.errors.ErrorResponse;
 
 @Controller
 public class ChangeInfoHTMLController {
@@ -35,7 +35,7 @@ public class ChangeInfoHTMLController {
 		Assert.isSamePassword(password, newPassword);
 
 		// Participant que se ha logeado antes
-		Agent p = (Agent) session.getAttribute("participant");
+		Agent p = (Agent) session.getAttribute("agent");
 		Assert.isParticipantNull(p);
 		Assert.isPasswordCorrect(password, p);
 
@@ -44,7 +44,7 @@ public class ChangeInfoHTMLController {
 
 		// Mensaje a mostrar en HTML
 		model.addAttribute("info", "Contraseña actualizada correctamente");
-		return "datosParticipant";
+		return "agentData";
 	}
 	
 	@RequestMapping(value = "/confirmEmail", method = RequestMethod.POST)
@@ -53,7 +53,7 @@ public class ChangeInfoHTMLController {
 		Assert.isEmailValid(email);
 
 		// Participant que se ha logeado antes
-		Agent p = (Agent) session.getAttribute("participant");
+		Agent p = (Agent) session.getAttribute("agent");
 		Assert.isParticipantNull(p);
 		Assert.isSameEmail(email, p.getEmail());
 
@@ -62,7 +62,7 @@ public class ChangeInfoHTMLController {
 
 		// Mensaje a mostrar en HTML
 		model.addAttribute("info", "Email actualizado correctamente");
-		return "datosParticipant";
+		return "agentData";
 	}
 
 	@ExceptionHandler(ErrorResponse.class)

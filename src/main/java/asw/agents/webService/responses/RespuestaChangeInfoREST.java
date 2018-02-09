@@ -1,4 +1,4 @@
-package asw.participants.webService.responses;
+package asw.agents.webService.responses;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -6,25 +6,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "ChangeInfoResponse")
 public class RespuestaChangeInfoREST {
 
-	private String participant;
+	private String agent;
 	private String message;
 
 	public RespuestaChangeInfoREST() {
 	}
 
-	public RespuestaChangeInfoREST(String participant, String message) {
+	public RespuestaChangeInfoREST(String agent, String message) {
 		super();
-		this.participant = participant;
+		this.agent = agent;
 		this.message = message;
 	}
 
-	public String getParticipant() {
-		return participant;
+	public String getAgent() {
+		return agent;
 	}
 
 	@XmlElement
-	public void setParticipant(String participant) {
-		this.participant = participant;
+	public void setAgent(String agent) {
+		this.agent = agent;
 	}
 
 	public String getMessage() {

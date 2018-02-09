@@ -1,4 +1,4 @@
-package asw.participants.webService.responses.errors;
+package asw.agents.webService.responses.errors;
 
 public abstract class ErrorResponse extends RuntimeException {
 

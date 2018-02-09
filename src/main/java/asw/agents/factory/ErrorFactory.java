@@ -1,14 +1,14 @@
-package asw.participants.factory;
+package asw.agents.factory;
 
-import asw.participants.webService.responses.errors.ErrorResponse;
-import asw.participants.webService.responses.errors.IncorrectPasswordErrorResponse;
-import asw.participants.webService.responses.errors.PasswordDoNotMatchErrorResponse;
-import asw.participants.webService.responses.errors.RequiredEmailErrorResponse;
-import asw.participants.webService.responses.errors.RequiredPasswordErrorResponse;
-import asw.participants.webService.responses.errors.SameEmailErrorResponse;
-import asw.participants.webService.responses.errors.UnknownErrorResponse;
-import asw.participants.webService.responses.errors.UserNotFoundResponse;
-import asw.participants.webService.responses.errors.WrongEmailStyleErrorResponse;
+import asw.agents.webService.responses.errors.ErrorResponse;
+import asw.agents.webService.responses.errors.IncorrectPasswordErrorResponse;
+import asw.agents.webService.responses.errors.PasswordDoNotMatchErrorResponse;
+import asw.agents.webService.responses.errors.RequiredEmailErrorResponse;
+import asw.agents.webService.responses.errors.RequiredPasswordErrorResponse;
+import asw.agents.webService.responses.errors.SameEmailErrorResponse;
+import asw.agents.webService.responses.errors.UnknownErrorResponse;
+import asw.agents.webService.responses.errors.UserNotFoundResponse;
+import asw.agents.webService.responses.errors.WrongEmailStyleErrorResponse;
 
 //
 
