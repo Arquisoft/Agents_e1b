@@ -28,15 +28,15 @@ public class GetAgentInfoRESTController implements GetAgentInfo {
 	@RequestMapping(value = "/user", method = RequestMethod.POST, headers = { "Accept=application/json",
 			"Accept=application/xml" }, produces = { "application/json", "text/xml" })
 	public ResponseEntity<RespuestaInfoREST> getPOSTpetition(@RequestBody(required = true) PeticionInfoREST peticion) {
-
-		Assert.isEmailEmpty(peticion.getLogin());
-		Assert.isEmailValid(peticion.getLogin());
+		
+		// Datos de inicio de sesion
+		Assert.isIdentEmpty(peticion.getLogin());
 		Assert.isPasswordEmpty(peticion.getPassword());
-
+		Assert.isKindEmpty(peticion.getKind());
+		
+		//Comprobaciones
 		Agent agent = getAgent.getAgent(peticion.getLogin());
-
 		Assert.isParticipantNull(agent);
-
 		Assert.isPasswordCorrect(peticion.getPassword(), agent);
 
 		/*

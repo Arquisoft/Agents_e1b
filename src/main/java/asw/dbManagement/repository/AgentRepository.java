@@ -14,6 +14,17 @@ public interface AgentRepository extends JpaRepository<Agent, Long> {
 	 * @param email del agente
 	 * @return El Agente con dicho email
 	 */
+	@Deprecated
 	public Agent findByEmail(String email);
+	
+	
+	
+	/**
+	 * Devuelve el agente encontrado al buscar por identificador
+	 * en la base de datos
+	 * @param identificador del agente
+	 * @return el agente encontrado
+	 */
+	public Agent findByIdent(String ident);
 	
 }

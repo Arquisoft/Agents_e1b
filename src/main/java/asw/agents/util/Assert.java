@@ -4,6 +4,11 @@ import asw.agents.factory.ErrorFactory;
 import asw.agents.factory.ErrorFactory.Errors;
 import asw.dbManagement.model.Agent;
 
+
+// Nota para el futuro:
+// Creo que las excepciones no deberian de ser arrojadas desde aqui, aqui simplemente deberian
+// estar declarados una serie de predicados para devolver un booleano
+
 public class Assert {
 
 	/**
@@ -12,39 +17,36 @@ public class Assert {
 	 * @return excepcion si esta vacio
 	 */
 	public static boolean isEmailEmpty(String email) {
-		if (email.trim().isEmpty())
+		if(email.trim().isEmpty())
 			throw ErrorFactory.getError(Errors.REQUIRED_EMAIL);
 		else
 			return false;
 	}
-
-	/**
-	 * 
-	 * @param password
-	 * @return excepcion si esta vacio
-	 */
+	
 	public static boolean isPasswordEmpty(String password) {
-		if (password.trim().isEmpty())
+		if(password.trim().isEmpty())
 			throw ErrorFactory.getError(Errors.REQUIRED_PASSWORD);
 		else
 			return false;
 	}
-
-	/**
-	 * 
-	 * @param kind
-	 * @return excepcion si esta vacio
-	 */
+	
+	public static boolean isIdentEmpty(String ident) {
+		if(ident.trim().isEmpty())
+			throw ErrorFactory.getError(Errors.REQUIRED_IDENT);
+		else
+			return false;
+	}
+	
 	public static boolean isKindEmpty(String kind) {
-		if (kind.trim().isEmpty())
-			throw ErrorFactory.getError(Errors.REQUIRED_PASSWORD);
+		if(kind.trim().isEmpty())
+			throw ErrorFactory.getError(Errors.REQUIRED_KIND);
 		else
 			return false;
 	}
+	
 
 	/**
 	 * Comprobacion de si el correo es valido
-	 * 
 	 * @param email
 	 * @return true si es valido.
 	 */
@@ -59,37 +61,47 @@ public class Assert {
 		}
 		return true;
 	}
-
+	
 	/**
 	 * 
 	 * @param participant
 	 * @return devuelve false si no es null o excepcion
 	 */
-	public static boolean isParticipantNull(Agent participant) {
+	public static boolean isParticipantNull(Agent participant){
 		if (participant == null) {
 			throw ErrorFactory.getError(Errors.USER_NOT_FOUND);
 		}
-		return false;
+		return false;		
 	}
-
-	public static boolean isPasswordCorrect(String password, Agent participant) {
+	
+	public static boolean isPasswordCorrect(String password,Agent participant){
 		if (!password.equals(participant.getPassword())) {
 			throw ErrorFactory.getError(Errors.INCORRECT_PASSWORD_DO_NOT_MATCH);
 		}
 		return true;
 	}
-
-	public static boolean isSamePassword(String password, String password2) {
+	
+	public static boolean isSamePassword(String password, String password2){
 		if (password.equals(password2)) {
 			throw ErrorFactory.getError(Errors.INCORRECT_PASSWORD);
 		}
 		return true;
 	}
 
-	public static boolean isSameEmail(String email, String email2) {
+	public static boolean isSameEmail(String email, String email2){
 		if (email.equals(email2)) {
 			throw ErrorFactory.getError(Errors.SAME_EMAIL);
 		}
 		return true;
 	}
+	
+	public static boolean isSameIdent(String ident, String ident2){
+		if (ident.equals(ident2)) {
+			throw ErrorFactory.getError(Errors.SAME_IDENT);
+		}
+		return true;	
+	}
+	
+
+	
 }

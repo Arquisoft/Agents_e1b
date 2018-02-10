@@ -1,5 +1,6 @@
 package asw.dbManagement.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Agent")
+@Table(name = "Participant")
 public class Agent {
 
 	// Id generado automáticamente para diferenciar cada uno (para mapear)
@@ -20,11 +21,11 @@ public class Agent {
 	private String password;
 	@Column(unique = true)
 	private String email;
-	@Column(unique = true)
-	private String DNI;
+	private String ident;
 	private String location;
 	private String kind;
 	private int kindCode;
+
 
 	/**
 	 * Constructor vacío (ya que es para mapear)
@@ -32,16 +33,25 @@ public class Agent {
 	Agent() {
 	}
 
-	public Agent(String name, String password, String email, String location, String kind, int kindCode) {
+
+	public Agent(String name, String password, String email, String ident, String location, String kind) {
 		super();
 		this.name = name;
 		this.password = password;
 		this.email = email;
+		this.ident = ident;
 		this.location = location;
 		this.kind = kind;
-		this.kindCode = kindCode;
 	}
 
+	public String getIdent() {
+		return ident;
+	}
+	
+	public void setIdent(String ident) {
+		this.ident = ident;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -69,27 +79,19 @@ public class Agent {
 	public String getLocation() {
 		return location;
 	}
-
+	
 	protected void setKindCode(int kindCode) {
 		this.kindCode = kindCode;
 	}
-
+	
 	public int getKindCode() {
 		return kindCode;
 	}
-
-	public String getDNI() {
-		return DNI;
-	}
-
-	public void setDNI(String dNI) {
-		this.DNI = dNI;
-	}
-
+	
 	public String getKind() {
-		// Implementar aqui la llamada al lector del CSV para que lea el tipo de agente
-		return "";
+		return kind;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -118,8 +120,7 @@ public class Agent {
 
 	@Override
 	public String toString() {
-		return "Participant [name=" + name + ", location=" + location + ", email=" + email + ", id=" + id + ", kind="
-				+ kind + ", kindCode=" + kindCode + "]";
+		return "Agent [name=" + name + ", location=" + location + ", email=" + email + ", id=" + id + ", ident=" + ident + ", kind=" + kind + ", kindCode=" + kindCode + "]";
 	}
 
 }

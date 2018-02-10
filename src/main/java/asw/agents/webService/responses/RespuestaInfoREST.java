@@ -3,57 +3,76 @@ package asw.agents.webService.responses;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import asw.agents.util.Utilidades;
 import asw.dbManagement.model.Agent;
 
-@XmlRootElement(name = "Agent")
-public class RespuestaInfoREST {
-
+@XmlRootElement(name = "agent")
+public class RespuestaInfoREST {	
+	
+	
 	private String name;
-	private String ID;
+	private String ident;
 	private String email;
+	private String location;
 	private String kind;
 	private int kindCode;
-
-	public RespuestaInfoREST() {
-	}
-
-	public RespuestaInfoREST(Agent agent) {
-		setFirstName(agent.getName());
-		setID(agent.getDNI());
+	
+	public RespuestaInfoREST() {}
+	
+	public RespuestaInfoREST(Agent agent){
+		setName(agent.getName());
+		setIdent(agent.getIdent());
 		setEmail(agent.getEmail());
+		setLocation(agent.getLocation());
 		setKind(agent.getKind());
 		setKindCode(agent.getKindCode());
 	}
-
-	public String getFirstName() {
+	
+	//GETTERS
+	public String getName() {
 		return name;
 	}
-
-	@XmlElement
-	public void setFirstName(String firstName) {
-		this.name = firstName;
+	
+	public String getIdent() {
+		return ident;
 	}
-
-	public String getID() {
-		return ID;
-	}
-
-	@XmlElement
-	public void setID(String iD) {
-		ID = iD;
-	}
-
+	
 	public String getEmail() {
 		return email;
 	}
+	
+	public String getLocation() {
+		return location;
+	}
+	
+	public String getKind() {
+		return kind;
+	}
+	
+	public int getKindCode() {
+		return kindCode;
+	}
+	
+	
+	//SETTERS
+	@XmlElement
+	public void setName(String name) {
+		this.name = name;
+	}
 
+	@XmlElement
+	public void setIdent(String ident) {
+		this.ident = ident;
+	}
+	
 	@XmlElement
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public String getKind() {
-		return kind;
+	@XmlElement
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	@XmlElement
@@ -61,13 +80,11 @@ public class RespuestaInfoREST {
 		this.kind = kind;
 	}
 
-	public int getKindCode() {
-		return kindCode;
-	}
-
 	@XmlElement
 	public void setKindCode(int kindCode) {
 		this.kindCode = kindCode;
 	}
+
+
 
 }

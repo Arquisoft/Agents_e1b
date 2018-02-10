@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+ 	<meta charset="UTF-8"/>
+ 	<title>Datos personales</title>
+</head>
+<body>
+<h1>Datos personales</h1>
+
+	<form method="POST" action="confirmEmail" >
+		<label for="email"><strong>Correo:</strong> </label>
+		<input type="text" name="email" th:value="${session.agent.email}"/>
+		<input type="submit" name="cambiarEmail" value="Cambiar email"/>
+	</form>
+	
+	<p><strong>Identificador:</strong> <span th:text="${session.agent.ident}"></span></p>
+	<p><strong>Nombre:</strong> <span th:text="${session.agent.name}"></span></p>
+	<p><strong>Email:</strong> <span th:text="${session.agent.email}"></span></p>
+	<p><strong>Localización:</strong> <span th:text="${session.agent.location}"></span></p>
+	<p><strong>Tipo de agente:</strong> <span th:text="${session.agent.kind}"></span></p>
+	<p><strong>Código del tipo de agente:</strong> <span th:text="${session.agent.kindCode}"></span></p>
+	
+	<i><span th:if="${info != null}" th:text="${info}">Info</span></i>
+	
+	<br/>
+	<br/>
+	<form method="POST" action="changeInfo" >
+		<input type="submit" name="cambiarContraseña" value="Cambiar contraseña"/>
+	</form>
+</body>
+</html>
