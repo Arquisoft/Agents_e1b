@@ -34,11 +34,11 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.web.client.RestTemplate;
 
 import asw.Application;
-import asw.dbManagement.GetParticipant;
-import asw.dbManagement.model.Participant;
-import asw.participants.webService.request.PeticionChangeEmailREST;
-import asw.participants.webService.request.PeticionChangePasswordREST;
-import asw.participants.webService.request.PeticionInfoREST;
+import asw.agents.webService.request.PeticionChangeEmailREST;
+import asw.agents.webService.request.PeticionChangePasswordREST;
+import asw.agents.webService.request.PeticionInfoREST;
+import asw.dbManagement.GetAgent;
+import asw.dbManagement.model.Agent;
 
 @SuppressWarnings("deprecation")
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -55,7 +55,7 @@ public class MainTest {
 	private RestTemplate template;
 
 	@Autowired
-	private GetParticipant getParticipant;
+	private GetAgent getParticipant;
 
 	@Before
 	public void setUp() throws Exception {
@@ -65,10 +65,10 @@ public class MainTest {
 
 	@Test
 	public void T1domainModelEqualsTest() {
-		Participant participant1 = getParticipant.getParticipant("paco@hotmail.com");
-		Participant participant2 = getParticipant.getParticipant("pac@hotmail.com");
-		Participant participant3 = getParticipant.getParticipant("paco@hotmail.com");
-		Participant participant4 = getParticipant.getParticipant("pepe@gmail.com");
+		Agent participant1 = getParticipant.getParticipant("paco@hotmail.com");
+		Agent participant2 = getParticipant.getParticipant("pac@hotmail.com");
+		Agent participant3 = getParticipant.getParticipant("paco@hotmail.com");
+		Agent participant4 = getParticipant.getParticipant("pepe@gmail.com");
 		assertFalse(participant1.equals(participant2));
 		assertFalse(participant1.equals(4));
 		assertTrue(participant1.equals(participant3));
@@ -78,7 +78,7 @@ public class MainTest {
 
 	@Test
 	public void T2domainModelToString() {
-		Participant participant1 = getParticipant.getParticipant("paco@hotmail.com");
+		Agent participant1 = getParticipant.getParticipant("paco@hotmail.com");
 		assertEquals(participant1.toString(),
 				"Participant [nombre=" + participant1.getNombre() + ", apellidos=" + participant1.getApellidos()
 						+ ", fechaNacimiento=" + participant1.getFechaNacimiento() + ", email="
@@ -88,8 +88,8 @@ public class MainTest {
 
 	@Test
 	public void T3domainModelHashCodeTest() {
-		Participant participant1 = getParticipant.getParticipant("paco@hotmail.com");
-		Participant participant3 = getParticipant.getParticipant("paco@hotmail.com");
+		Agent participant1 = getParticipant.getParticipant("paco@hotmail.com");
+		Agent participant3 = getParticipant.getParticipant("paco@hotmail.com");
 		assertEquals(participant1.hashCode(), participant3.hashCode());
 	}
 
