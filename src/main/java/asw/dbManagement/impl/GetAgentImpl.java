@@ -9,24 +9,24 @@ import asw.dbManagement.repository.AgentRepository;
 
 
 @Service
-public class getAgentImpl implements GetAgent {
+public class GetAgentImpl implements GetAgent {
 	
 	private AgentRepository repository;
 	
 	@Autowired
-	public getAgentImpl(AgentRepository repository) {
+	public GetAgentImpl(AgentRepository repository) {
 		this.repository = repository;
 	}
 	
 	
 	/**
-	 * Método que devuelve el Agente buscado por email
-	 * Hace uso del método findByEmail (mapeador)
+	 * Método que devuelve el Agente buscado por identificador
+	 * Hace uso del método findByIdent (mapeador)
 	 */
 	@Override
-	public Agent getAgent(String email) {
-		
-		return this.repository.findByEmail(email);
+	public Agent getAgent(String ident) {
+		return this.repository.findByIdent(ident);
 	}
+
 
 }

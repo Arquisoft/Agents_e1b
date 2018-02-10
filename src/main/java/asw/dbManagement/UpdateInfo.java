@@ -9,4 +9,6 @@ public interface UpdateInfo {
 	public void updatePassword(Agent agent, String password, String newPassword);
 	
 	public void updateEmail(Agent agent, String email);
+	
+	public void updateIdentificator(Agent agent, String ident);
 }

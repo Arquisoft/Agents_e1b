@@ -22,6 +22,7 @@ public class Agent {
 	private String password;
 	@Column(unique = true)
 	private String email;
+	private String ident;
 	private String location;
 	private String kind;
 	private int kindCode;
@@ -34,16 +35,25 @@ public class Agent {
 	}
 
 
-	public Agent(String name, String password, String email, String location, String kind, int kindCode) {
+	public Agent(String name, String password, String email, String ident, String location, String kind, int kindCode) {
 		super();
 		this.name = name;
 		this.password = password;
 		this.email = email;
+		this.ident = ident;
 		this.location = location;
 		this.kind = kind;
 		this.kindCode = kindCode;
 	}
 
+	public String getIdent() {
+		return ident;
+	}
+	
+	public void setIdent(String ident) {
+		this.ident = ident;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -81,8 +91,7 @@ public class Agent {
 	}
 	
 	public String getKind() {
-		// Implementar aqui la llamada al lector del CSV para que lea el tipo de agente
-		return "";
+		return kind;
 	}
 
 
@@ -113,7 +122,7 @@ public class Agent {
 
 	@Override
 	public String toString() {
-		return "Participant [name=" + name + ", location=" + location + ", email=" + email + ", id=" + id + ", kind=" + kind + ", kindCode=" + kindCode + "]";
+		return "Agent [name=" + name + ", location=" + location + ", email=" + email + ", id=" + id + ", ident=" + ident + ", kind=" + kind + ", kindCode=" + kindCode + "]";
 	}
 
 }

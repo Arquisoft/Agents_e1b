@@ -44,5 +44,17 @@ public class UpdateInfoImpl implements UpdateInfo {
 			this.repository.save(agent);
 		}
 	}
+	
+	
+	/**
+	 * Método que permite actualizar el identificador del agente
+	 */
+	@Override
+	public void updateIdentificator(Agent agent, String ident) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 
 }
