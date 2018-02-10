@@ -9,70 +9,82 @@ import asw.dbManagement.model.Agent;
 @XmlRootElement(name = "agent")
 public class RespuestaInfoREST {	
 	
-	private String firstName;
-	private String lastName;
-	private int edad;
-	private String ID;
+	
+	private String name;
+	private String ident;
 	private String email;
+	private String location;
+	private String kind;
+	private int kindCode;
 	
 	public RespuestaInfoREST() {}
 	
 	public RespuestaInfoREST(Agent agent){
-		setFirstName(agent.getNombre());
-		setLastName(agent.getApellidos());
-		setEdad(Utilidades.getEdad(agent.getFechaNacimiento()));
-		setID(agent.getDNI());
+		setName(agent.getName());
+		setIdent(agent.getIdent());
 		setEmail(agent.getEmail());
-//		this.firstName = participant.getNombre();
-//		this.lastName = participant.getApellidos();
-//		this.edad = Utilidades.getEdad(participant.getFechaNacimiento());
-//		this.ID = participant.getDNI();
-//		this.email = participant.getEmail();
+		setLocation(agent.getLocation());
+		setKind(agent.getKind());
+		setKindCode(agent.getKindCode());
 	}
-
-	public String getFirstName() {
-		return firstName;
+	
+	//GETTERS
+	public String getName() {
+		return name;
 	}
-
-	@XmlElement
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	
+	public String getIdent() {
+		return ident;
 	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	@XmlElement
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public int getEdad() {
-		return edad;
-	}
-
-	@XmlElement
-	public void setEdad(int edad) {
-		this.edad = edad;
-	}
-
-	public String getID() {
-		return ID;
-	}
-
-	@XmlElement
-	public void setID(String iD) {
-		ID = iD;
-	}
-
+	
 	public String getEmail() {
 		return email;
 	}
+	
+	public String getLocation() {
+		return location;
+	}
+	
+	public String getKind() {
+		return kind;
+	}
+	
+	public int getKindCode() {
+		return kindCode;
+	}
+	
+	
+	//SETTERS
+	@XmlElement
+	public void setName(String name) {
+		this.name = name;
+	}
 
+	@XmlElement
+	public void setIdent(String ident) {
+		this.ident = ident;
+	}
+	
 	@XmlElement
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	@XmlElement
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	@XmlElement
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+	@XmlElement
+	public void setKindCode(int kindCode) {
+		this.kindCode = kindCode;
+	}
+
+
 
 }

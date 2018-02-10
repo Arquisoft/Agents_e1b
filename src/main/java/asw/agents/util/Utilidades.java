@@ -11,7 +11,8 @@ public  class Utilidades {
 	/// tengan que ver con la l�gica de los controladores //
 	/// //
 	//////////////////////////////////////////////////////////
-
+	
+	@Deprecated
 	public static int getEdad(Date fechaNacimiento) {
 		Calendar calendarioNacimiento = Calendar.getInstance();
 		calendarioNacimiento.setTime(fechaNacimiento);
