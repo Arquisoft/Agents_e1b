@@ -51,7 +51,7 @@ public class UpdateInfoImpl implements UpdateInfo {
 	 */
 	@Override
 	public void updateIdentificator(Agent agent, String ident) {
-		//
+		//Hay que rellenar este metodo
 	}
 
 
