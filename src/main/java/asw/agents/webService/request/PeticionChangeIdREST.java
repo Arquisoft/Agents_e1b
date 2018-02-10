@@ -1,16 +1,16 @@
 package asw.agents.webService.request;
 
-public class PeticionChangeEmailREST {
+public class PeticionChangeIdREST {
 
 	private String email;
 	private String password;
 	private String newEmail;
 	
-	public PeticionChangeEmailREST() {
+	public PeticionChangeIdREST() {
 
 	}
 
-	public PeticionChangeEmailREST(String email, String password, String newEmail) {
+	public PeticionChangeIdREST(String email, String password, String newEmail) {
 		super();
 		this.email = email;
 		this.password = password;
