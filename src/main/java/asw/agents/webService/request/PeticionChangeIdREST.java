@@ -2,27 +2,27 @@ package asw.agents.webService.request;
 
 public class PeticionChangeIdREST {
 
-	private String email;
+	private String ident;
 	private String password;
-	private String newEmail;
-	
+	private String newIdent;
+
 	public PeticionChangeIdREST() {
 
 	}
 
-	public PeticionChangeIdREST(String email, String password, String newEmail) {
+	public PeticionChangeIdREST(String ident, String password, String newIdent) {
 		super();
-		this.email = email;
+		this.ident = ident;
 		this.password = password;
-		this.newEmail = newEmail;
+		this.newIdent = newIdent;
 	}
 
 	public String getEmail() {
-		return email;
+		return ident;
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.ident = email;
 	}
 
 	public String getPassword() {
@@ -34,11 +34,11 @@ public class PeticionChangeIdREST {
 	}
 
 	public String getNewEmail() {
-		return newEmail;
+		return newIdent;
 	}
 
 	public void setNewEmail(String newEmail) {
-		this.newEmail = newEmail;
+		this.newIdent = newEmail;
 	}
 
 }
