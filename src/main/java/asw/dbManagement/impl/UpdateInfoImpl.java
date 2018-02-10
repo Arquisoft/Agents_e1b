@@ -51,10 +51,8 @@ public class UpdateInfoImpl implements UpdateInfo {
 	 */
 	@Override
 	public void updateIdentificator(Agent agent, String ident) {
-		// TODO Auto-generated method stub
-		
+		//
 	}
-	
-	
+
 
 }
