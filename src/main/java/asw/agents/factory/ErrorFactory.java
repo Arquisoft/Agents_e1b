@@ -4,6 +4,8 @@ import asw.agents.webService.responses.errors.ErrorResponse;
 import asw.agents.webService.responses.errors.IncorrectPasswordErrorResponse;
 import asw.agents.webService.responses.errors.PasswordDoNotMatchErrorResponse;
 import asw.agents.webService.responses.errors.RequiredEmailErrorResponse;
+import asw.agents.webService.responses.errors.RequiredIdentErrorResponse;
+import asw.agents.webService.responses.errors.RequiredKindErrorResponse;
 import asw.agents.webService.responses.errors.RequiredPasswordErrorResponse;
 import asw.agents.webService.responses.errors.SameEmailErrorResponse;
 import asw.agents.webService.responses.errors.UnknownErrorResponse;
@@ -40,6 +42,10 @@ public class ErrorFactory {
 			return new RequiredEmailErrorResponse();
 		case REQUIRED_PASSWORD:
 			return new RequiredPasswordErrorResponse();
+		case REQUIRED_IDENT:
+			return new RequiredIdentErrorResponse();
+		case REQUIRED_KIND:
+			return new RequiredKindErrorResponse();
 		case USER_NOT_FOUND:
 			return new UserNotFoundResponse();
 		case WRONG_EMAIL_STYLE:
