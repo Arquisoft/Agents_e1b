@@ -4,6 +4,11 @@ import asw.agents.factory.ErrorFactory;
 import asw.agents.factory.ErrorFactory.Errors;
 import asw.dbManagement.model.Agent;
 
+
+// Nota para el futuro:
+// Creo que las excepciones no deberian de ser arrojadas desde aqui, aqui simplemente deberian
+// estar declarados una serie de predicados para devolver un booleano
+
 public class Assert {
 
 	/**
@@ -24,6 +29,21 @@ public class Assert {
 		else
 			return false;
 	}
+	
+	public static boolean isIdentEmpty(String ident) {
+		if(ident.trim().isEmpty())
+			throw ErrorFactory.getError(Errors.REQUIRED_IDENT);
+		else
+			return false;
+	}
+	
+	public static boolean isKindEmpty(String kind) {
+		if(kind.trim().isEmpty())
+			throw ErrorFactory.getError(Errors.REQUIRED_KIND);
+		else
+			return false;
+	}
+	
 
 	/**
 	 * Comprobacion de si el correo es valido
@@ -74,4 +94,14 @@ public class Assert {
 		}
 		return true;
 	}
+	
+	public static boolean isSameIdent(String ident, String ident2){
+		if (ident.equals(ident2)) {
+			throw ErrorFactory.getError(Errors.SAME_IDENT);
+		}
+		return true;	
+	}
+	
+
+	
 }

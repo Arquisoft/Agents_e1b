@@ -26,7 +26,8 @@ public class ErrorFactory {
 		USER_NOT_FOUND,
 		WRONG_EMAIL_STYLE,
 		INCORRECT_PASSWORD_DO_NOT_MATCH,
-		SAME_EMAIL
+		SAME_EMAIL,
+		SAME_IDENT
 	}
 
 	// Generar Constructor privado no queremos que se pueda tener varias
@@ -54,6 +55,8 @@ public class ErrorFactory {
 			return new PasswordDoNotMatchErrorResponse();
 		case SAME_EMAIL:
 			return new SameEmailErrorResponse();
+		case SAME_IDENT:
+			return new SameIdentErrorResponse();
 		default:// en caso de no conocer el error.
 			return new UnknownErrorResponse();
 		}
