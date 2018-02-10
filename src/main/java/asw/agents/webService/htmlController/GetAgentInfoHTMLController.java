@@ -30,33 +30,21 @@ public class GetAgentInfoHTMLController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String getLogin(HttpSession session, @RequestParam String email, @RequestParam String password,
+	public String getLogin(HttpSession session, @RequestParam String ident, @RequestParam String password, @RequestParam String kind,
 			Model model) {
 
-		Assert.isEmailEmpty(email);
-		Assert.isEmailValid(email);
+		//login
+		Assert.isIdentEmpty(ident);
 		Assert.isPasswordEmpty(password);
-
-		Agent participant = getAgent.getAgent(email);
-
+		Assert.isKindEmpty(kind);
+		
+		//Comprobaciones
+		Agent participant = getAgent.getAgent(ident);
 		Assert.isParticipantNull(participant);
 		Assert.isPasswordCorrect(password, participant);
 
 		session.setAttribute("agent", participant);
-
-//		if (!participant.isAdmin() && !participant.isPolitician()) {
-//			session.setAttribute("edad", Utilidades.getEdad(participant.getFechaNacimiento()));
-//			return "datosParticipant";
-//		} else{
-//			if(participant.isAdmin())
-//				return "dashboardAdmin";
-//			else
-//				return "dashboardPolitician";
-//		}
-		
 		return "agentData";
-		
-		//Añadir lógica condicional para los nuevos requisitos
 
 	}
 
