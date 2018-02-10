@@ -449,73 +449,73 @@ public class MainTest {
 //								"")));
 //	}
 	
-	@Test
-	public void emailChangeCorrect() {
-		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-		String userURI = base.toString() + "/changeEmail";
-		
-		String correctChange = "{\"participant\":\"pac@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
-		response = template.postForEntity(userURI, new PeticionChangeEmailREST("paco@hotmail.com", "123456", "pac@hotmail.com"),
-				String.class);
-		assertThat(response.getBody(), equalTo(correctChange));
-
-		correctChange = "{\"participant\":\"pepe@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
-		response = template.postForEntity(userURI, new PeticionChangeEmailREST("pepe@gmail.com", "123456", "pepe@hotmail.com"),
-				String.class);
-		assertThat(response.getBody(), equalTo(correctChange));
-
-		correctChange = "{\"participant\":\"fhfyg@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
-		response = template.postForEntity(userURI, new PeticionChangeEmailREST("carmen@yahoo.com", "123456", "fhfyg@hotmail.com"),
-				String.class);
-		assertThat(response.getBody(), equalTo(correctChange));
-	}
-	
-	@Test
-	public void correctPasswordChange() {
-		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-		String userURI = base.toString() + "/changePassword";
-		String correctPassword = "{\"participant\":\"isabel@gmail.com\",\"message\":\"contraseña actualizada correctamente\"}";
-
-		response = template.postForEntity(userURI,
-				new PeticionChangePasswordREST("isabel@gmail.com", "123456", "djfhr"), String.class);
-		assertThat(response.getBody(), equalTo(correctPassword));
-	}
-	
-	@Test
-	public void correctPasswordChangeXML() {
-		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-		String userURI = base.toString() + "/changePassword";
-		String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
-				+ "<ChangeInfoResponse><message>contraseÃ±a actualizada correctamente</message>"
-				+ "<participant>isabel@gmail.com</participant></ChangeInfoResponse>";
-
-		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
-		interceptors.add(new AcceptInterceptor());
-
-		template.setInterceptors(interceptors);
-
-		response = template.postForEntity(userURI,
-				new PeticionChangePasswordREST("isabel@gmail.com", "djfhr", "123456"), String.class);
-		assertThat(response.getBody(), equalTo(correctChange));
-	}
-	
-	@Test
-	public void emailChangeCorrectXML() {
-		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
-		String userURI = base.toString() + "/changeEmail";
-		String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
-				+ "<ChangeInfoResponse><message>email actualizado correctamente</message>"
-				+ "<participant>carmen@yahoo.com</participant></ChangeInfoResponse>";
-
-		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
-		interceptors.add(new AcceptInterceptor());
-
-		template.setInterceptors(interceptors);
-
-		response = template.postForEntity(userURI, new PeticionChangeEmailREST("fhfyg@hotmail.com", "123456", "carmen@yahoo.com"),
-				String.class);
-		assertThat(response.getBody(), equalTo(correctChange));
-	}
+//	@Test
+//	public void emailChangeCorrect() {
+//		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+//		String userURI = base.toString() + "/changeEmail";
+//		
+//		String correctChange = "{\"participant\":\"pac@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
+//		response = template.postForEntity(userURI, new PeticionChangeEmailREST("paco@hotmail.com", "123456", "pac@hotmail.com"),
+//				String.class);
+//		assertThat(response.getBody(), equalTo(correctChange));
+//
+//		correctChange = "{\"participant\":\"pepe@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
+//		response = template.postForEntity(userURI, new PeticionChangeEmailREST("pepe@gmail.com", "123456", "pepe@hotmail.com"),
+//				String.class);
+//		assertThat(response.getBody(), equalTo(correctChange));
+//
+//		correctChange = "{\"participant\":\"fhfyg@hotmail.com\",\"message\":\"email actualizado correctamente\"}";
+//		response = template.postForEntity(userURI, new PeticionChangeEmailREST("carmen@yahoo.com", "123456", "fhfyg@hotmail.com"),
+//				String.class);
+//		assertThat(response.getBody(), equalTo(correctChange));
+//	}
+//	
+//	@Test
+//	public void correctPasswordChange() {
+//		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+//		String userURI = base.toString() + "/changePassword";
+//		String correctPassword = "{\"participant\":\"isabel@gmail.com\",\"message\":\"contraseña actualizada correctamente\"}";
+//
+//		response = template.postForEntity(userURI,
+//				new PeticionChangePasswordREST("isabel@gmail.com", "123456", "djfhr"), String.class);
+//		assertThat(response.getBody(), equalTo(correctPassword));
+//	}
+//	
+//	@Test
+//	public void correctPasswordChangeXML() {
+//		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+//		String userURI = base.toString() + "/changePassword";
+//		String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
+//				+ "<ChangeInfoResponse><message>contraseÃ±a actualizada correctamente</message>"
+//				+ "<participant>isabel@gmail.com</participant></ChangeInfoResponse>";
+//
+//		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
+//		interceptors.add(new AcceptInterceptor());
+//
+//		template.setInterceptors(interceptors);
+//
+//		response = template.postForEntity(userURI,
+//				new PeticionChangePasswordREST("isabel@gmail.com", "djfhr", "123456"), String.class);
+//		assertThat(response.getBody(), equalTo(correctChange));
+//	}
+//	
+//	@Test
+//	public void emailChangeCorrectXML() {
+//		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+//		String userURI = base.toString() + "/changeEmail";
+//		String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>"
+//				+ "<ChangeInfoResponse><message>email actualizado correctamente</message>"
+//				+ "<participant>carmen@yahoo.com</participant></ChangeInfoResponse>";
+//
+//		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
+//		interceptors.add(new AcceptInterceptor());
+//
+//		template.setInterceptors(interceptors);
+//
+//		response = template.postForEntity(userURI, new PeticionChangeEmailREST("fhfyg@hotmail.com", "123456", "carmen@yahoo.com"),
+//				String.class);
+//		assertThat(response.getBody(), equalTo(correctChange));
+//	}
 
 	// Cabecera HTTP para pedir respuesta en XML
 	public class AcceptInterceptor implements ClientHttpRequestInterceptor {
