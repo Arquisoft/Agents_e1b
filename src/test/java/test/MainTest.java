@@ -62,6 +62,11 @@ public class MainTest {
 		this.base = new URL("http://localhost:" + port + "/");
 		template = new TestRestTemplate();
 	}
+	
+	@Test
+	public void EmptyTest() {
+		
+	}
 
 //	@Test
 //	public void T1domainModelEqualsTest() {
