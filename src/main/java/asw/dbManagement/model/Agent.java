@@ -1,7 +1,5 @@
 package asw.dbManagement.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Participant")
+@Table(name = "Agent")
 public class Agent {
 
 	// Id generado automáticamente para diferenciar cada uno (para mapear)
