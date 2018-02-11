@@ -1,5 +1,6 @@
 package asw.dbManagement.model;
 
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,7 +35,7 @@ public class Agent {
 	}
 
 
-	public Agent(String name, String password, String email, String ident, String location, String kind) {
+	public Agent(String name, String password, String email, String ident, String location, String kind, int kindCode) {
 		super();
 		this.name = name;
 		this.password = password;
@@ -42,6 +43,7 @@ public class Agent {
 		this.ident = ident;
 		this.location = location;
 		this.kind = kind;
+		this.kindCode = kindCode;
 	}
 
 	public String getIdent() {

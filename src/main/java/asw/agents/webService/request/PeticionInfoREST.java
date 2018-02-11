@@ -2,7 +2,7 @@ package asw.agents.webService.request;
 
 public class PeticionInfoREST {
 
-	private String login;
+	private String ident;
 	private String password;
 	private String kind;
 
@@ -10,8 +10,13 @@ public class PeticionInfoREST {
 
 	}
 	
-	public PeticionInfoREST(String login,String password, String kind){
-		this.login = login;
+	public PeticionInfoREST(String ident,String password){
+		this.ident = ident;
+		this.password = password;
+	}
+	
+	public PeticionInfoREST(String ident,String password, String kind){
+		this.ident = ident;
 		this.password = password;
 		this.kind = kind;
 	}
@@ -25,16 +30,16 @@ public class PeticionInfoREST {
 		this.kind = kind;
 	}
 	
-	public void setLogin(String login) {
-		this.login = login;
+	public void setident(String ident) {
+		this.ident = ident;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getident() {
+		return ident;
 	}
 
 	public String getPassword() {

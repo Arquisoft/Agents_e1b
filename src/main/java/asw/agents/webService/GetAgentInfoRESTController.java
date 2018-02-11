@@ -30,12 +30,12 @@ public class GetAgentInfoRESTController implements GetAgentInfo {
 	public ResponseEntity<RespuestaInfoREST> getPOSTpetition(@RequestBody(required = true) PeticionInfoREST peticion) {
 		
 		// Datos de inicio de sesion
-		Assert.isIdentEmpty(peticion.getLogin());
+		Assert.isIdentEmpty(peticion.getident());
 		Assert.isPasswordEmpty(peticion.getPassword());
 		Assert.isKindEmpty(peticion.getKind());
 		
 		//Comprobaciones
-		Agent agent = getAgent.getAgent(peticion.getLogin());
+		Agent agent = getAgent.getAgent(peticion.getident());
 		Assert.isParticipantNull(agent);
 		Assert.isPasswordCorrect(peticion.getPassword(), agent);
 
