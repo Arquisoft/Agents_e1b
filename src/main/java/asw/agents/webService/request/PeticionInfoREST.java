@@ -1,57 +1,50 @@
 package asw.agents.webService.request;
 
-import asw.agents.util.CsvReader;
-
 public class PeticionInfoREST {
 
-	private String login;
+	private String ident;
 	private String password;
-	private int kindCode;
-	private String kind;
+	private int kind;
 
 	public PeticionInfoREST() {
 
 	}
 	
-	public PeticionInfoREST(String login,String password, int kindCode){
-		this.login = login;
+	public PeticionInfoREST(String ident,String password){
+		this.ident = ident;
 		this.password = password;
-		this.kindCode = kindCode;
 	}
 	
-	
-	public String getKind() {
-		CsvReader csvReader = new CsvReader();
-		setKind(csvReader.buscarTipo(getKindCode()));
-		return kind;
-	}
-
-	public void setKind(String kind) {
+	public PeticionInfoREST(String ident,String password, int kind){
+		this.ident = ident;
+		this.password = password;
 		this.kind = kind;
 	}
 	
-	public void setLogin(String login) {
-		this.login = login;
+	
+	public int getKind() {
+		return kind;
+	}
+
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
+	
+	public void setident(String ident) {
+		this.ident = ident;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getident() {
+		return ident;
 	}
 
 	public String getPassword() {
 		return password;
 	}
 
-	public int getKindCode() {
-		return kindCode;
-	}
-
-	public void setKindCode(int kindCode) {
-		this.kindCode = kindCode;
-	}
-
+	
 }

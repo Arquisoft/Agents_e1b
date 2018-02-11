@@ -37,12 +37,6 @@ public class Assert {
 			return false;
 	}
 	
-	public static boolean isKindEmpty(String kind) {
-		if(kind.trim().isEmpty())
-			throw ErrorFactory.getError(Errors.REQUIRED_KIND);
-		else
-			return false;
-	}
 	
 
 	/**
@@ -77,6 +71,13 @@ public class Assert {
 	public static boolean isPasswordCorrect(String password,Agent participant){
 		if (!password.equals(participant.getPassword())) {
 			throw ErrorFactory.getError(Errors.INCORRECT_PASSWORD_DO_NOT_MATCH);
+		}
+		return true;
+	}
+	
+	public static boolean isKindCodeCorrect(int kindCode,Agent participant){
+		if (!(kindCode==participant.getKindCode())) {
+			throw ErrorFactory.getError(Errors.INCORRECT_KINDCODE);
 		}
 		return true;
 	}
