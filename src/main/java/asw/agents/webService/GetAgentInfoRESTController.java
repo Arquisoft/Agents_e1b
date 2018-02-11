@@ -32,7 +32,6 @@ public class GetAgentInfoRESTController implements GetAgentInfo {
 		// Datos de inicio de sesion
 		Assert.isIdentEmpty(peticion.getLogin());
 		Assert.isPasswordEmpty(peticion.getPassword());
-		Assert.isKindEmpty(peticion.getKind());
 		
 		//Comprobaciones
 		Agent agent = getAgent.getAgent(peticion.getLogin());

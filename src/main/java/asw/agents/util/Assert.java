@@ -37,13 +37,6 @@ public class Assert {
 			return false;
 	}
 	
-	public static boolean isKindEmpty(String kind) {
-		if(kind.trim().isEmpty())
-			throw ErrorFactory.getError(Errors.REQUIRED_KIND);
-		else
-			return false;
-	}
-	
 
 	/**
 	 * Comprobacion de si el correo es valido
