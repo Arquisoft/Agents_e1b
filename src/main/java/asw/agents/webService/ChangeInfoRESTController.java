@@ -35,6 +35,7 @@ public class ChangeInfoRESTController implements ChangeInfo {
 		String email = datos.getEmail();
 		String password = datos.getPassword();
 		String newPassword = datos.getNewPassword();
+		String ident = datos.getIdent();
 		
 		Assert.isEmailEmpty(email);
 		Assert.isEmailValid(email);
@@ -44,7 +45,7 @@ public class ChangeInfoRESTController implements ChangeInfo {
 		
 		Assert.isSamePassword(password, newPassword);	
 
-		Agent p = getAgent.getAgent(email);
+		Agent p = getAgent.getAgent(ident);
 		Assert.isParticipantNull(p);
 		Assert.isPasswordCorrect(password, p);
 
@@ -61,7 +62,8 @@ public class ChangeInfoRESTController implements ChangeInfo {
 		String email = datos.getEmail();
 		String password = datos.getPassword();
 		String nuevoEmail = datos.getNewEmail();
-		
+		String ident = datos.getIdent();
+
 		Assert.isEmailEmpty(email);
 		Assert.isEmailValid(email);
 		
@@ -72,7 +74,7 @@ public class ChangeInfoRESTController implements ChangeInfo {
 
 		Assert.isPasswordEmpty(password);
 		
-		Agent p = getAgent.getAgent(email);
+		Agent p = getAgent.getAgent(ident);
 		Assert.isParticipantNull(p);
 		Assert.isPasswordCorrect(password, p);
 		

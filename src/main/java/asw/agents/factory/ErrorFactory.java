@@ -8,6 +8,7 @@ import asw.agents.webService.responses.errors.RequiredIdentErrorResponse;
 import asw.agents.webService.responses.errors.RequiredKindErrorResponse;
 import asw.agents.webService.responses.errors.RequiredPasswordErrorResponse;
 import asw.agents.webService.responses.errors.SameEmailErrorResponse;
+import asw.agents.webService.responses.errors.SameIdentErrorResponse;
 import asw.agents.webService.responses.errors.UnknownErrorResponse;
 import asw.agents.webService.responses.errors.UserNotFoundResponse;
 import asw.agents.webService.responses.errors.WrongEmailStyleErrorResponse;

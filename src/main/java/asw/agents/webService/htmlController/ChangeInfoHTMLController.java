@@ -44,7 +44,7 @@ public class ChangeInfoHTMLController {
 
 		// Mensaje a mostrar en HTML
 		model.addAttribute("info", "Contraseña actualizada correctamente");
-		return "agentData";
+		return "datosParticipant";
 	}
 	
 	@RequestMapping(value = "/confirmEmail", method = RequestMethod.POST)
@@ -62,7 +62,7 @@ public class ChangeInfoHTMLController {
 
 		// Mensaje a mostrar en HTML
 		model.addAttribute("info", "Email actualizado correctamente");
-		return "agentData";
+		return "datosParticipant";
 	}
 
 	@ExceptionHandler(ErrorResponse.class)

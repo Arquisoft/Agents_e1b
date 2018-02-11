@@ -1,9 +1,7 @@
-package asw.agents.factory;
+package asw.agents.webService.responses.errors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import asw.agents.webService.responses.errors.ErrorResponse;
 @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "User idents are the same")
 
 public class SameIdentErrorResponse extends ErrorResponse {
