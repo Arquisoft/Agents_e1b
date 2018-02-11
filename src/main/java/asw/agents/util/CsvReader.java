@@ -13,34 +13,34 @@ public class CsvReader {
 
 	static Map<Integer, String> tipos;
 
-	public static void main(String[] args) throws Exception {
-		System.out.println(buscarTipo(1));
-	}
+	private void leerCSV() {
 
-	private static void leerCSV() throws IOException {
+		try {
+			tipos = new HashMap<Integer, String>();
 
-		tipos = new HashMap<Integer, String>();
+			@SuppressWarnings("resource")
+			CSVReader reader = new CSVReader(new FileReader("csv.csv"));
 
-		CSVReader reader = new CSVReader(new FileReader("csv.csv"));
+			List<String[]> li = reader.readAll();
 
-		List<String[]> li = reader.readAll();
+			Iterator<String[]> i1 = li.iterator();
 
-		Iterator<String[]> i1 = li.iterator();
+			while (i1.hasNext()) {
 
-		while (i1.hasNext()) {
+				String[] crop = i1.next()[0].split(";");
 
-			String[] crop = i1.next()[0].split(";");
+				tipos.put(Integer.parseInt(crop[0]), crop[1]);
 
-			tipos.put(Integer.parseInt(crop[0]), crop[1]);
-
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
-	
-	
-	public static String buscarTipo(int numero) throws IOException {
+
+	public String buscarTipo(int numero) {
 		leerCSV();
-		for(Map.Entry<Integer, String> e : tipos.entrySet()) {
-			if(e.getKey() == numero)
+		for (Map.Entry<Integer, String> e : tipos.entrySet()) {
+			if (e.getKey() == numero)
 				return e.getValue();
 		}
 		return null;
