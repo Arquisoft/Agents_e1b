@@ -1,12 +1,12 @@
 package asw.dbManagement.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import asw.agents.util.CsvReader;
 
 @Entity
 @Table(name = "Participant")
@@ -24,7 +24,6 @@ public class Agent {
 	private String email;
 	private String ident;
 	private String location;
-	private String kind;
 	private int kindCode;
 
 
@@ -35,14 +34,13 @@ public class Agent {
 	}
 
 
-	public Agent(String name, String password, String email, String ident, String location, String kind, int kindCode) {
+	public Agent(String name, String password, String email, String ident, String location, int kindCode) {
 		super();
 		this.name = name;
 		this.password = password;
 		this.email = email;
 		this.ident = ident;
 		this.location = location;
-		this.kind = kind;
 		this.kindCode = kindCode;
 	}
 
@@ -91,7 +89,7 @@ public class Agent {
 	}
 	
 	public String getKind() {
-		return kind;
+		return new CsvReader().buscarTipo(getKindCode());
 	}
 
 
@@ -122,7 +120,7 @@ public class Agent {
 
 	@Override
 	public String toString() {
-		return "Agent [name=" + name + ", location=" + location + ", email=" + email + ", id=" + id + ", ident=" + ident + ", kind=" + kind + ", kindCode=" + kindCode + "]";
+		return "Agent [name=" + name + ", location=" + location + ", email=" + email + ", id=" + id + ", ident=" + ident + ", kindCode=" + kindCode + "]";
 	}
 
 }

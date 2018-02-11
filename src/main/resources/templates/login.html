@@ -1,31 +1,28 @@
 <!DOCTYPE HTML>
 <html>
 <head>
- 	<meta charset="UTF-8"/>
- 	<title>Login</title>
+<meta charset="UTF-8" />
+<title>Login</title>
 </head>
 <body>
-<h1>Login</h1>
-<form method="POST" action="login" >
-	<table>
-		<tr>
-			<td><label for="ident"><strong>Usuario:</strong> </label></td>
-			<td><input type="text" id="ident" name="ident"/></td>
-		</tr>
-		<tr>
-			<td><label for="password"><strong>Contraseña:</strong> </label></td>
-			<td><input type="password" id="password" name="password" /></td>
-		</tr>
-		
-		<!-- Cambiar input del kind, por un combobox y no por un text input -->
-		<tr>
-			<td><label for="kind"><strong>Tipo de agente:</strong> </label></td>
-			<td><input type="text" id="kind" name="kind" /></td>
-		</tr>
-		<tr>
-			<td><button type="submit" id="login">Entrar</button></td>
-		</tr>
-	</table>
-</form>
+
+	<div>
+		<form method="POST" action="login">
+			<h2>Usuario:</h2>
+			<input id="ident" name="ident" type="text" />
+			<h2>Contraseña:</h2>
+			<input id="password" name="password" type="text" />
+			<br/><br/>
+			<select id="kind"
+				name="kind">
+				<option value="1">Person</option>
+				<option value="2">Entity</option>
+				<option value="3">Sensor</option>
+			</select>
+			<button type="submit" id="login">Entrar</button>
+		</form>
+	</div>
+
+
 </body>
 </html>
