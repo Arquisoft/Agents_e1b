@@ -113,94 +113,75 @@ public class MainTest {
 				"{\"name\":\"SensorTemperatura\",\"location\":\"43.5479621,-5.9304147\",\"email\":\"sensorT@hotmail.com\",\"id\":\"sensor1\",\"kind\":\"Sensor\",\"kindCode\":3}"));
 	}
 
-	// @Test
-	// public void T5participantDoNotExist() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/user";
-	// String userNotFound = "{\"reason\": \"User not found\"}";
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("sensor33",
-	// "ajksdkje", "asdad"), String.class);
-	// assertThat(response.getBody(), equalTo(userNotFound));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("persona69",
-	// "shcxhqw", "qwerty"),
-	// String.class);
-	// assertThat(response.getBody(), equalTo(userNotFound));
-	// }
-	//
-	// @Test
-	// public void T6incorrectPassword() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/user";
-	// String incorrectPassword = "{\"reason\": \"Password do not match\"}";
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("12345678P",
-	// "12356", "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(incorrectPassword));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("12345678A",
-	// "12346", "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(incorrectPassword));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("entidad1",
-	// "13456", "Entity"), String.class);
-	// assertThat(response.getBody(), equalTo(incorrectPassword));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("sensor1",
-	// "23456", "Sensor"), String.class);
-	// assertThat(response.getBody(), equalTo(incorrectPassword));
-	// }
-	//
-	// @Test
-	// public void T7emptyId() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/user";
-	// String emptyId = "{\"reason\": \"User id is required\"}";
-	// response = template.postForEntity(userURI, new PeticionInfoREST("", "123",
-	// "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyId));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("", "1223",
-	// "Entity"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyId));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("", "iewgs",
-	// "Sensor"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyId));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST(" ", "123",
-	// "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyId));
-	// }
-	//
-	// @Test
-	// public void T8invalidId() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/user";
-	// String wrongIdStyle = "{\"reason\": \"Wrong id style\"}";
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("$%&", "123",
-	// "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(wrongIdStyle));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("_123",
-	// "123", "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(wrongIdStyle));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("-hhsy",
-	// "123", "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(wrongIdStyle));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("@jjA.",
-	// "123", "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(wrongIdStyle));
-	// }
-	//
+	@Test
+	public void T5agentDoNotExist() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/user";
+		String userNotFound = "{\"reason\": \"User not found\"}";
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("sensor33", "ajksdkje", 1), String.class);
+		assertThat(response.getBody(), equalTo(userNotFound));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("persona69", "shcxhqw", 2), String.class);
+		assertThat(response.getBody(), equalTo(userNotFound));
+	}
+
+	@Test
+	public void T6incorrectPassword() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/user";
+		String incorrectPassword = "{\"reason\": \"Password do not match\"}";
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("12345678P", "12356", 1), String.class);
+		assertThat(response.getBody(), equalTo(incorrectPassword));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("12345678A", "12346", 1), String.class);
+		assertThat(response.getBody(), equalTo(incorrectPassword));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("entidad1", "13456", 2), String.class);
+		assertThat(response.getBody(), equalTo(incorrectPassword));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("sensor1", "23456", 3), String.class);
+		assertThat(response.getBody(), equalTo(incorrectPassword));
+	}
+
+	@Test
+	public void T7emptyId() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/user";
+		String emptyId = "{\"reason\": \"Users need an identificator \"}";
+		response = template.postForEntity(userURI, new PeticionInfoREST("", "123", 1), String.class);
+		assertThat(response.getBody(), equalTo(emptyId));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("", "1223", 2), String.class);
+		assertThat(response.getBody(), equalTo(emptyId));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("", "iewgs", 3), String.class);
+		assertThat(response.getBody(), equalTo(emptyId));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST(" ", "123", 1), String.class);
+		assertThat(response.getBody(), equalTo(emptyId));
+	}
+
+	@Test
+	public void T8invalidId() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/user";
+		String wrongIdStyle = "{\"reason\": \"Wrong id style\"}";
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("$%&", "123", 1), String.class);
+		assertThat(response.getBody(), equalTo(wrongIdStyle));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("_123", "123", 1), String.class);
+		assertThat(response.getBody(), equalTo(wrongIdStyle));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("-hhsy", "123", 1), String.class);
+		assertThat(response.getBody(), equalTo(wrongIdStyle));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("@jjA.", "123", 1), String.class);
+		assertThat(response.getBody(), equalTo(wrongIdStyle));
+	}
+
 	// @Test
 	// public void T9emptyPassword() {
 	// ResponseEntity<String> response = template.getForEntity(base.toString(),
