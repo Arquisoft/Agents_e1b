@@ -3,7 +3,6 @@ package asw.agents.webService.responses;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import asw.agents.util.Utilidades;
 import asw.dbManagement.model.Agent;
 
 @XmlRootElement(name = "agent")
