@@ -51,7 +51,7 @@ public class ChangeInfoHTMLController {
 	public String changeEmail(HttpSession session, @RequestParam String email, Model model) {
 		Assert.isEmailEmpty(email);
 		Assert.isEmailValid(email);
-
+		
 		// Participant que se ha logeado antes
 		Agent p = (Agent) session.getAttribute("agent");
 		Assert.isParticipantNull(p);

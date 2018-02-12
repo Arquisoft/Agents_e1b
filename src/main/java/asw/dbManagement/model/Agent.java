@@ -1,11 +1,12 @@
 package asw.dbManagement.model;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import asw.agents.util.CsvReader;
 
 @Entity
 @Table(name = "Participant")
@@ -23,9 +24,7 @@ public class Agent {
 	private String email;
 	private String ident;
 	private String location;
-	private String kind;
 	private int kindCode;
-
 
 	/**
 	 * Constructor vacío (ya que es para mapear)
@@ -33,25 +32,24 @@ public class Agent {
 	Agent() {
 	}
 
-
-	public Agent(String name, String password, String email, String ident, String location, String kind) {
+	public Agent(String name, String password, String email, String ident, String location, int kindCode) {
 		super();
 		this.name = name;
 		this.password = password;
 		this.email = email;
 		this.ident = ident;
 		this.location = location;
-		this.kind = kind;
+		this.kindCode = kindCode;
 	}
 
 	public String getIdent() {
 		return ident;
 	}
-	
+
 	public void setIdent(String ident) {
 		this.ident = ident;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -79,19 +77,18 @@ public class Agent {
 	public String getLocation() {
 		return location;
 	}
-	
+
 	protected void setKindCode(int kindCode) {
 		this.kindCode = kindCode;
 	}
-	
+
 	public int getKindCode() {
 		return kindCode;
 	}
-	
-	public String getKind() {
-		return kind;
-	}
 
+	public String getKind() {
+		return new CsvReader().buscarTipo(getKindCode());
+	}
 
 	@Override
 	public int hashCode() {
@@ -120,7 +117,8 @@ public class Agent {
 
 	@Override
 	public String toString() {
-		return "Agent [name=" + name + ", location=" + location + ", email=" + email + ", id=" + id + ", ident=" + ident + ", kind=" + kind + ", kindCode=" + kindCode + "]";
+		return "Agent [name=" + name + ", location=" + location + ", email=" + email + ", ident=" + ident + ", kind=" + getKind()
+				+ ", kindCode=" + kindCode + "]";
 	}
 
 }

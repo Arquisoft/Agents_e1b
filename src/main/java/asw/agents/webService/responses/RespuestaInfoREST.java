@@ -3,76 +3,74 @@ package asw.agents.webService.responses;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import asw.agents.util.Utilidades;
 import asw.dbManagement.model.Agent;
 
 @XmlRootElement(name = "agent")
-public class RespuestaInfoREST {	
-	
-	
+public class RespuestaInfoREST {
+
 	private String name;
-	private String ident;
-	private String email;
 	private String location;
+	private String email;
+	private String id;
 	private String kind;
 	private int kindCode;
-	
-	public RespuestaInfoREST() {}
-	
-	public RespuestaInfoREST(Agent agent){
+
+	public RespuestaInfoREST() {
+	}
+
+	public RespuestaInfoREST(Agent agent) {
 		setName(agent.getName());
-		setIdent(agent.getIdent());
-		setEmail(agent.getEmail());
 		setLocation(agent.getLocation());
+		setEmail(agent.getEmail());
+		setIdent(agent.getIdent());
 		setKind(agent.getKind());
 		setKindCode(agent.getKindCode());
 	}
-	
-	//GETTERS
+
+	// GETTERS
 	public String getName() {
 		return name;
 	}
-	
-	public String getIdent() {
-		return ident;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
+
 	public String getLocation() {
 		return location;
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getId() {
+		return id;
+	}
+
 	public String getKind() {
 		return kind;
 	}
-	
+
 	public int getKindCode() {
 		return kindCode;
 	}
-	
-	
-	//SETTERS
+
+	// SETTERS
 	@XmlElement
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	@XmlElement
-	public void setIdent(String ident) {
-		this.ident = ident;
+	public void setLocation(String location) {
+		this.location = location;
 	}
-	
+
 	@XmlElement
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
 	@XmlElement
-	public void setLocation(String location) {
-		this.location = location;
+	public void setIdent(String id) {
+		this.id = id;
 	}
 
 	@XmlElement
@@ -84,7 +82,5 @@ public class RespuestaInfoREST {
 	public void setKindCode(int kindCode) {
 		this.kindCode = kindCode;
 	}
-
-
 
 }

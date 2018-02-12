@@ -1,6 +1,7 @@
 package asw;
 
 import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -28,28 +29,28 @@ public class Application {
 		return (args) -> {
 			// PERSON
 			// Inserción en la base de datos
-			repository.save(new Agent("Paco", "123456", "paco@hotmail.com", "43.5479621,-5.9304147", "12345678P", "Person"));
+			repository.save(new Agent("Paco", "123456", "paco@hotmail.com", "12345678P", "43.5479621,-5.9304147", 1));
 
 			// Inserción en la base de datos
-			repository.save(new Agent("Pepe", "123456", "pepe@hotmail.com", "43.5479621,-5.9304147", "12345678A", "Person"));
+			repository.save(new Agent("Pepe", "123456", "pepe@hotmail.com", "12345678A", "43.5479621,-5.9304147", 1));
 
 			// ENTITY
 			// Inserción en la base de datos
-			repository.save(new Agent("Valgrande Pajares", "123456", "pajares@hotmail.com", "43.5479621,-5.9304147",
-					"entidad1", "Entity"));
+			repository.save(new Agent("Valgrande Pajares", "123456", "pajares@hotmail.com", "entidad1",
+					"43.5479621,-5.9304147", 2));
 
 			// Inserción en la base de datos
-			repository.save(new Agent("Estación Fuentes De Invierno", "123456", "fuentes@hotmail.com",
-					"43.5479621,-5.9304147,", "entidad2", "Entity"));
+			repository.save(new Agent("Estación Fuentes De Invierno", "123456", "fuentes@hotmail.com", "entidad2",
+					"43.5479621,-5.9304147,", 2));
 
 			// SENSOR
 			// Inserción en la base de datos
-			repository.save(new Agent("SensorTemperatura", "123456", "sensorT@hotmail.com", "43.5479621,-5.9304147",
-					"sensor1", "Sensor"));
+			repository.save(new Agent("SensorTemperatura", "123456", "sensorT@hotmail.com", "sensor1",
+					"43.5479621,-5.9304147", 3));
 
 			// Inserción en la base de datos
 			repository.save(
-					new Agent("SensorHumedad", "123456", "sensorH@hotmail.com", "43.5479621,-5.9304147", "sensor2", "Sensor"));
+					new Agent("SensorHumedad", "123456", "sensorH@hotmail.com", "sensor2", "43.5479621,-5.9304147", 3));
 		};
 	}
 }

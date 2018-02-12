@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import asw.agents.util.Assert;
-import asw.agents.util.Utilidades;
 import asw.agents.webService.responses.errors.ErrorResponse;
 import asw.dbManagement.GetAgent;
 import asw.dbManagement.model.Agent;
@@ -30,21 +29,24 @@ public class GetAgentInfoHTMLController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String getLogin(HttpSession session, @RequestParam String ident, @RequestParam String password, @RequestParam String kind,
+	public String getLogin(HttpSession session, @RequestParam String ident, @RequestParam String password,@RequestParam int kind,
 			Model model) {
 
-		//login
 		Assert.isIdentEmpty(ident);
 		Assert.isPasswordEmpty(password);
 		Assert.isKindEmpty(kind);
-		
-		//Comprobaciones
-		Agent participant = getAgent.getAgent(ident);
-		Assert.isParticipantNull(participant);
-		Assert.isPasswordCorrect(password, participant);
 
-		session.setAttribute("agent", participant);
+		Agent agent = getAgent.getAgent(ident);
+
+		Assert.isIdValid(ident);
+		Assert.isParticipantNull(agent);
+		Assert.isPasswordCorrect(password, agent);
+		Assert.isKindCodeCorrect(kind, agent);
+
+		session.setAttribute("agent", agent);
+
 		return "agentData";
+	
 
 	}
 
