@@ -1,3 +1,8 @@
+[![Join the chat at https://gitter.im/Agents_e1b](https://badges.gitter.im/Agents_e1b.svg)](https://gitter.im/Agents_e1b/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d7cb9ab12dd4230a9a1ccdc3a723185)](https://www.codacy.com/app/jelabra/Agents_e1b?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Arquisoft/Agents_e1b&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/Arquisoft/Agents_e1b.svg?branch=master)](https://travis-ci.org/Arquisoft/Agents_e1b)
+[![codecov](https://codecov.io/gh/Arquisoft/Agents_e1b/branch/master/graph/badge.svg)](https://codecov.io/gh/Arquisoft/Agents_e1b)
+
 # Agents_e1b
 
 **Bienvenidos a nuestro modulo de Agents**
