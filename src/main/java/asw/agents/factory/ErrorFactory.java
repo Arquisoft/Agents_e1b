@@ -13,6 +13,7 @@ import asw.agents.webService.responses.errors.SameIdentErrorResponse;
 import asw.agents.webService.responses.errors.UnknownErrorResponse;
 import asw.agents.webService.responses.errors.UserNotFoundResponse;
 import asw.agents.webService.responses.errors.WrongEmailStyleErrorResponse;
+import asw.agents.webService.responses.errors.WrongIdStyleErrorResponse;
 
 //
 
@@ -20,17 +21,7 @@ import asw.agents.webService.responses.errors.WrongEmailStyleErrorResponse;
 public class ErrorFactory {
 
 	public static enum Errors {
-		INCORRECT_PASSWORD,
-		REQUIRED_EMAIL,
-		REQUIRED_PASSWORD,
-		REQUIRED_IDENT,
-		REQUIRED_KIND,
-		USER_NOT_FOUND,
-		WRONG_EMAIL_STYLE,
-		INCORRECT_PASSWORD_DO_NOT_MATCH,
-		SAME_EMAIL,
-		SAME_IDENT,
-		INCORRECT_KINDCODE,
+		INCORRECT_PASSWORD, REQUIRED_EMAIL, REQUIRED_PASSWORD, REQUIRED_IDENT, REQUIRED_KIND, USER_NOT_FOUND, WRONG_EMAIL_STYLE, WRONG_ID_STYLE, INCORRECT_PASSWORD_DO_NOT_MATCH, SAME_EMAIL, SAME_IDENT, INCORRECT_KINDCODE,
 	}
 
 	// Generar Constructor privado no queremos que se pueda tener varias
@@ -56,6 +47,8 @@ public class ErrorFactory {
 			return new UserNotFoundResponse();
 		case WRONG_EMAIL_STYLE:
 			return new WrongEmailStyleErrorResponse();
+		case WRONG_ID_STYLE:
+			return new WrongIdStyleErrorResponse();
 		case INCORRECT_PASSWORD_DO_NOT_MATCH:
 			return new PasswordDoNotMatchErrorResponse();
 		case SAME_EMAIL:

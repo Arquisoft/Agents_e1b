@@ -31,21 +31,21 @@ public class ChangeInfoRESTController implements ChangeInfo {
 	@Override
 	@RequestMapping(value = "/changePassword", method = RequestMethod.POST, headers = { "Accept=application/json",
 			"Accept=application/xml" }, produces = { "application/json", "text/xml" })
-	public ResponseEntity<RespuestaChangeInfoREST> changePassword(@RequestBody(required=true) PeticionChangePasswordREST datos) {
+	public ResponseEntity<RespuestaChangeInfoREST> changePassword(
+			@RequestBody(required = true) PeticionChangePasswordREST datos) {
 		String email = datos.getEmail();
 		String password = datos.getPassword();
 		String newPassword = datos.getNewPassword();
-		String ident = datos.getIdent();
-		
+
 		Assert.isEmailEmpty(email);
 		Assert.isEmailValid(email);
-		
+
 		Assert.isPasswordEmpty(password);
 		Assert.isPasswordEmpty(newPassword);
-		
-		Assert.isSamePassword(password, newPassword);	
 
-		Agent p = getAgent.getAgent(ident);
+		Assert.isSamePassword(password, newPassword);
+
+		Agent p = getAgent.getAgentByEmail(email);
 		Assert.isParticipantNull(p);
 		Assert.isPasswordCorrect(password, p);
 
@@ -58,26 +58,26 @@ public class ChangeInfoRESTController implements ChangeInfo {
 	@Override
 	@RequestMapping(value = "/changeEmail", method = RequestMethod.POST, headers = { "Accept=application/json",
 			"Accept=application/xml" }, produces = { "application/json", "text/xml" })
-	public ResponseEntity<RespuestaChangeInfoREST> changeEmail(@RequestBody(required = true) PeticionChangeEmailREST datos) {
+	public ResponseEntity<RespuestaChangeInfoREST> changeEmail(
+			@RequestBody(required = true) PeticionChangeEmailREST datos) {
 		String email = datos.getEmail();
 		String password = datos.getPassword();
 		String nuevoEmail = datos.getNewEmail();
-		String ident = datos.getIdent();
 
 		Assert.isEmailEmpty(email);
 		Assert.isEmailValid(email);
-		
+
 		Assert.isEmailEmpty(nuevoEmail);
 		Assert.isEmailValid(nuevoEmail);
-		
+
 		Assert.isSameEmail(email, nuevoEmail);
 
 		Assert.isPasswordEmpty(password);
-		
-		Agent p = getAgent.getAgent(ident);
+
+		Agent p = getAgent.getAgentByEmail(email);
 		Assert.isParticipantNull(p);
 		Assert.isPasswordCorrect(password, p);
-		
+
 		updateInfo.updateEmail(p, nuevoEmail);
 
 		RespuestaChangeInfoREST res = new RespuestaChangeInfoREST(nuevoEmail, "email actualizado correctamente");

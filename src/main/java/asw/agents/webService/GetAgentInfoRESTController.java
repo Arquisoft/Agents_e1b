@@ -28,20 +28,22 @@ public class GetAgentInfoRESTController implements GetAgentInfo {
 	@RequestMapping(value = "/user", method = RequestMethod.POST, headers = { "Accept=application/json",
 			"Accept=application/xml" }, produces = { "application/json", "text/xml" })
 	public ResponseEntity<RespuestaInfoREST> getPOSTpetition(@RequestBody(required = true) PeticionInfoREST peticion) {
-		
+
 		// Datos de inicio de sesion
 		Assert.isIdentEmpty(peticion.getident());
 		Assert.isPasswordEmpty(peticion.getPassword());
-		
-		//Comprobaciones
+		Assert.isKindEmpty(peticion.getKind());
+
+		// Comprobaciones
 		Agent agent = getAgent.getAgent(peticion.getident());
+		Assert.isIdValid(peticion.getident());
 		Assert.isParticipantNull(agent);
 		Assert.isPasswordCorrect(peticion.getPassword(), agent);
 		Assert.isKindCodeCorrect(peticion.getKind(), agent);
 
 		/*
-		 * Añadimos la información al modelo, para que se muestre en la pagina
-		 * html: (datosAgente|agentData).html
+		 * Añadimos la información al modelo, para que se muestre en la pagina html:
+		 * (datosAgente|agentData).html
 		 */
 
 		return new ResponseEntity<RespuestaInfoREST>(new RespuestaInfoREST(agent), HttpStatus.OK);
