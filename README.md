@@ -119,9 +119,14 @@ Valor de retorno:
 ```
 
 Usuarios de prueba:
- - Nombre:Valgrande Pajares Contraseña:123456 Email:pajares@hotmail.com Identificador:entidad1  Localización:43.5479621,-5.9304147 Tipo:2
- - Nombre:Estación Fuentes De Invierno Contraseña:123456 Email:fuentes@hotmail.com Identificador:entidad2 Localización:43.5479621,-5.9304147 Tipo:2
- - Nombre:SensorTemperatura Contraseña:123456 Email:sensorT@hotmail.com Identificador:sensor1 Localización:43.5479621,-5.9304147 Tipo:3
--- Nombre:SensorHumedad Contraseña:123456 Email:sensorH@hotmail.com Identificador:sensor2 Localización:43.5479621,-5.9304147 Tipo:3
-+- Nombre:SensorHumedad Contraseña:123456 Email:sensorH@hotmail.com Identificador:sensor2 Localización:43.5479621,-5.9304147 Tipo:3
+
+- Nombre:Valgrande Pajares Contraseña:123456 Email:pajares@hotmail.com Identificador:entidad1  Localización:43.5479621,-5.9304147 Tipo:2
+
+- Nombre:Estación Fuentes De Invierno Contraseña:123456 Email:fuentes@hotmail.com Identificador:entidad2 Localización:43.5479621,-5.9304147 Tipo:2
+
+- Nombre:SensorTemperatura Contraseña:123456 Email:sensorT@hotmail.com Identificador:sensor1 Localización:43.5479621,-5.9304147 Tipo:3
+
+- Nombre:SensorHumedad Contraseña:123456 Email:sensorH@hotmail.com Identificador:sensor2 Localización:43.5479621,-5.9304147 Tipo:3
+
+- Nombre:SensorHumedad Contraseña:123456 Email:sensorH@hotmail.com Identificador:sensor2 Localización:43.5479621,-5.9304147 Tipo:3
 
