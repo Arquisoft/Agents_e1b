@@ -34,10 +34,11 @@ public class GetAgentInfoHTMLController {
 
 		Assert.isIdentEmpty(ident);
 		Assert.isPasswordEmpty(password);
-		//Assert.isKindEmpty(kind);
+		Assert.isKindEmpty(kind);
 
 		Agent agent = getAgent.getAgent(ident);
 
+		Assert.isIdValid(ident);
 		Assert.isParticipantNull(agent);
 		Assert.isPasswordCorrect(password, agent);
 		Assert.isKindCodeCorrect(kind, agent);
