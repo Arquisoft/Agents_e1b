@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>es.uniovi.asw</groupId>
-	<artifactId>agents1b</artifactId>
-	<name>agents1b</name>
+	<artifactId>Agents_e1b</artifactId>
+	<name>Agents_e1b</name>
 	<version>0.0.1</version>
 
 	<parent>
@@ -15,6 +15,22 @@
 	</parent>
 
 	<dependencies>
+		
+		<!-- https://mvnrepository.com/artifact/net.sf.opencsv/opencsv -->
+		<!-- CSV Reader dependencies -->
+		<dependency>
+    		<groupId>net.sf.opencsv</groupId>
+    		<artifactId>opencsv</artifactId>
+    		<version>2.3</version>
+		</dependency>
+		
+		<!-- Email validation dependencies -->
+		<dependency>
+    		<groupId>commons-validator</groupId>
+    		<artifactId>commons-validator</artifactId>
+    		<version>1.4.1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
