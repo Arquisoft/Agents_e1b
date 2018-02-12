@@ -26,15 +26,9 @@ Este módulo forma parte de un sistema informático de gestión de incidencias, 
 
 
 ## Sobre el proyecto
-These instructions give the most direct path to work with the project.
 
 ### Requerimientos del sistema
 El proyecto ha sido desarrollado utilizando Java 1.8, por tanto es multiplataforma y debería ejecutarse sin problema tanto en Windows, MacOS y Linux.
-
-#### Java Development Kit (JDK)
-A Java Development Kit (JDK) is a program development environment for writing Java applets and applications. It consists of a runtime environment that "sits on top" of the operating system layer as well as the tools and programming that developers need to compile, debug, and run applets and applications written in the Java programming language.
-
-If you do not has the latest stable version download you can download it [here](http://www.oracle.com/technetwork/java/javase/downloads).
 
 #### JPA  ( Java Persistance API )
 Framework de java para manejar datos relacionales que persigue el diseño de esta API es no perder las ventajas de la orientación a objetos al interactuar con una base de datos (siguiendo el patrón de mapeo objeto-relacional).
