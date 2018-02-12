@@ -182,91 +182,82 @@ public class MainTest {
 		assertThat(response.getBody(), equalTo(wrongIdStyle));
 	}
 
-	// @Test
-	// public void T9emptyPassword() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/user";
-	// String emptyPassword = "{\"reason\": \"User password is required\"}";
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("12345678P",
-	// "", "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyPassword));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("12345678A",
-	// "", "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyPassword));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("entity1",
-	// "", "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyPassword));
-	//
-	// response = template.postForEntity(userURI, new PeticionInfoREST("sensor1",
-	// "", "Person"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyPassword));
-	// }
-	//
-	// @Test
-	// public void T10IdRequiredChange() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/changeId";
-	// String emptyId = "{\"reason\": \"User id is required\"}";
-	//
-	// response = template.postForEntity(userURI, new PeticionChangeIdREST("",
-	// "123456", "xlr8"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyId));
-	//
-	// response = template.postForEntity(userURI, new PeticionChangeIdREST(" ",
-	// "123456", "asd"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyId));
-	//
-	// response = template.postForEntity(userURI, new PeticionChangeIdREST("",
-	// "123456", "shfhs"), String.class);
-	// assertThat(response.getBody(), equalTo(emptyId));
-	// }
-	//
-	// @Test
-	// public void T12newIdRequiredChange() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/changeId";
-	// String emptyId = "{\"reason\": \"User id is required\"}";
-	//
-	// response = template.postForEntity(userURI, new
-	// PeticionChangeIdREST("12345678P", "123456", ""), String.class);
-	// assertThat(response.getBody(), equalTo(emptyId));
-	//
-	// response = template.postForEntity(userURI, new
-	// PeticionChangeIdREST("entity1", "123456", " "), String.class);
-	// assertThat(response.getBody(), equalTo(emptyId));
-	//
-	// response = template.postForEntity(userURI, new
-	// PeticionChangeIdREST("sensor1", "123456", " "), String.class);
-	// assertThat(response.getBody(), equalTo(emptyId));
-	// }
-	//
-	// @Test
-	// public void T13invalidEmailChange() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/changeId";
-	// String wrongIdStyle = "{\"reason\": \"Wrong id style\"}";
-	//
-	// response = template.postForEntity(userURI, new PeticionChangeIdREST("$%&",
-	// "123456", "xlr8"), String.class);
-	// assertThat(response.getBody(), equalTo(wrongIdStyle));
-	//
-	// response = template.postForEntity(userURI, new
-	// PeticionChangeIdREST("@_zaasd", "123456", "xlr8"), String.class);
-	// assertThat(response.getBody(), equalTo(wrongIdStyle));
-	//
-	// response = template.postForEntity(userURI, new
-	// PeticionChangeIdREST("paco@hotmail", "123456", "xlr8"),
-	// String.class);
-	// assertThat(response.getBody(), equalTo(wrongIdStyle));
-	// }
-	//
+	@Test
+	public void T9emptyPassword() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/user";
+		String emptyPassword = "{\"reason\": \"User password is required\"}";
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("12345678P", "", 1), String.class);
+		assertThat(response.getBody(), equalTo(emptyPassword));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("12345678A", "", 1), String.class);
+		assertThat(response.getBody(), equalTo(emptyPassword));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("entity1", "", 1), String.class);
+		assertThat(response.getBody(), equalTo(emptyPassword));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("sensor1", "", 1), String.class);
+		assertThat(response.getBody(), equalTo(emptyPassword));
+	}
+
+	@Test
+	public void T10EmailRequiredChange() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/changeEmail";
+		String emptyEmail = "{\"reason\": \"User email is required\"}";
+
+		response = template.postForEntity(userURI, new PeticionChangeEmailREST("", "123456", "paco123@hotmail.com"),
+				String.class);
+		assertThat(response.getBody(), equalTo(emptyEmail));
+
+		response = template.postForEntity(userURI, new PeticionChangeEmailREST(" ", "123456", "pajares123@hotmail.com"),
+				String.class);
+		assertThat(response.getBody(), equalTo(emptyEmail));
+
+		response = template.postForEntity(userURI, new PeticionChangeEmailREST("", "123456", "sensorT123@hotmail.com"),
+				String.class);
+		assertThat(response.getBody(), equalTo(emptyEmail));
+	}
+
+	@Test
+	public void T11newEmailRequiredChange() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/changeEmail";
+		String emptyEmail = "{\"reason\": \"User email is required\"}";
+
+		response = template.postForEntity(userURI, new PeticionChangeEmailREST("paco@hotmail.com", "123456", ""),
+				String.class);
+		assertThat(response.getBody(), equalTo(emptyEmail));
+
+		response = template.postForEntity(userURI, new PeticionChangeEmailREST("pajares@hotmail.com", "123456", " "),
+				String.class);
+		assertThat(response.getBody(), equalTo(emptyEmail));
+
+		response = template.postForEntity(userURI, new PeticionChangeEmailREST("sensorT@hotmail.com", "123456", " "),
+				String.class);
+		assertThat(response.getBody(), equalTo(emptyEmail));
+	}
+
+	@Test
+	public void T12invalidEmailChange() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/changeEmail";
+		String wrongEmailStyle = "{\"reason\": \"Wrong email style\"}";
+
+		response = template.postForEntity(userURI,
+				new PeticionChangeEmailREST("asdasd", "123456", "paco123@hotmail.com"), String.class);
+		assertThat(response.getBody(), equalTo(wrongEmailStyle));
+
+		response = template.postForEntity(userURI,
+				new PeticionChangeEmailREST("@_zaasd", "123456", "pajares123@hotmail.com"), String.class);
+		assertThat(response.getBody(), equalTo(wrongEmailStyle));
+
+		response = template.postForEntity(userURI,
+				new PeticionChangeEmailREST("paco@@@hotmail", "123456", "sensorT123@hotmail.com"), String.class);
+		assertThat(response.getBody(), equalTo(wrongEmailStyle));
+	}
+
 	// @Test
 	// public void T14newInvalidIdChange() {
 	// ResponseEntity<String> response = template.getForEntity(base.toString(),
