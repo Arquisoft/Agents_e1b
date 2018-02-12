@@ -10,13 +10,13 @@ public class WrongEmailStyleErrorResponse extends ErrorResponse{
 	@Override
 	public String getMessageJSONFormat() {
 		// TODO Auto-generated method stub
-		return "{\"reason\": \"Wrong mail style\"}";
+		return "{\"reason\": \"Wrong email style\"}";
 	}
 
 	@Override
 	public String getMessageStringFormat() {
 		
-		 return "Wrong mail style";
+		 return "Wrong email style";
 	}
 
 }
