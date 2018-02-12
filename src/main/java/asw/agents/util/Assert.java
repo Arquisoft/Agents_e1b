@@ -36,13 +36,13 @@ public class Assert {
 		else
 			return false;
 	}
-	
+
 	public static boolean isKindEmpty(Integer kind) {
-		if(kind==null) {
+		if (kind == null) {
 			throw ErrorFactory.getError(Errors.REQUIRED_KIND);
-		}else
+		} else
 			return false;
-		
+
 	}
 
 	/**
@@ -114,5 +114,11 @@ public class Assert {
 
 	}
 
+	public static boolean isKindCorrect(int kind) {
+		if (kind < 1 || kind > 3) {
+			throw ErrorFactory.getError(Errors.WRONG_KIND_STYLE);
+		}
+		return true;
+	}
 
 }

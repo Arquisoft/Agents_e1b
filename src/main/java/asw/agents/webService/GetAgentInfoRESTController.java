@@ -36,6 +36,7 @@ public class GetAgentInfoRESTController implements GetAgentInfo {
 
 		// Comprobaciones
 		Agent agent = getAgent.getAgent(peticion.getident());
+		Assert.isKindCorrect(peticion.getKind());
 		Assert.isIdValid(peticion.getident());
 		Assert.isParticipantNull(agent);
 		Assert.isPasswordCorrect(peticion.getPassword(), agent);

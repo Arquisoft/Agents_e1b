@@ -4,32 +4,31 @@ public class PeticionInfoREST {
 
 	private String ident;
 	private String password;
-	private int kind;
+	private Integer kind;
 
 	public PeticionInfoREST() {
 
 	}
-	
-	public PeticionInfoREST(String ident,String password){
+
+	public PeticionInfoREST(String ident, String password) {
 		this.ident = ident;
 		this.password = password;
 	}
-	
-	public PeticionInfoREST(String ident,String password, int kind){
+
+	public PeticionInfoREST(String ident, String password, Integer kind) {
 		this.ident = ident;
 		this.password = password;
 		this.kind = kind;
 	}
-	
-	
-	public int getKind() {
+
+	public Integer getKind() {
 		return kind;
 	}
 
-	public void setKind(int kind) {
+	public void setKind(Integer kind) {
 		this.kind = kind;
 	}
-	
+
 	public void setident(String ident) {
 		this.ident = ident;
 	}
@@ -46,5 +45,4 @@ public class PeticionInfoREST {
 		return password;
 	}
 
-	
 }
