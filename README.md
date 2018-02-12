@@ -106,7 +106,6 @@ curl -H "Content-Type: application/json" -X POST -d '{"ident":"entidad1", "passw
 
 Valor de retorno:
 ```json
-{
 {  
    "name":"Valgrande Pajares",
    "location":"43.5479621,-5.9304147",
