@@ -3,6 +3,7 @@ package asw.agents.util;
 import asw.agents.factory.ErrorFactory;
 import asw.agents.factory.ErrorFactory.Errors;
 import asw.dbManagement.model.Agent;
+import org.apache.commons.validator.routines.EmailValidator;
 
 
 // Nota para el futuro:
@@ -45,16 +46,12 @@ public class Assert {
 	 * @return true si es valido.
 	 */
 	public static boolean isEmailValid(String email) {
-		String[] mailSplit = email.split("@");
-		if (mailSplit.length != 2) {
+		boolean allowLocal = true;
+		if(!EmailValidator.getInstance(allowLocal).isValid(email))
 			throw ErrorFactory.getError(Errors.WRONG_EMAIL_STYLE);
-		}
-		mailSplit = email.split("\\.");
-		if (mailSplit.length != 2 || mailSplit[0].length() == 0 || mailSplit[1].length() == 0) {
-			throw ErrorFactory.getError(Errors.WRONG_EMAIL_STYLE);
-		}
-		return true;
-	}
+		else
+			return true;
+	}	
 	
 	/**
 	 * 
