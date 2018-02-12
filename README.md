@@ -81,15 +81,15 @@ Para obtener los datos del agente, puedes hacer una petición POST a [localhost:
 
 ##### JSON
 ```json
-{"ident":"agent-identifier", "password":"agent-password", "kind":"agent-kind-as-integer-code"}
+{"ident":"identificador del agente", "password":"contraseña del agente", "kind":"Código del tipo de agente"}
 ```
 
 ##### XML
 ```xml
 <data>
- <ident>agent-identifier</login>
- <password>agent-password</password>
- <kind>agent-kind-as-integer-code</kind>
+ <ident>Identificador del agente</ident>
+ <password>Contraseña del agente</password>
+ <kind>Tipo del agente</kind>
 </data>
 ```
 Esto debería devolverte una salida en JSON tal que esta que vamos a simular utilizando Curl:
