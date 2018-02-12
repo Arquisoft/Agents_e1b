@@ -100,7 +100,7 @@ public class MainTest {
 		// PERSON
 		response = template.postForEntity(userURI, new PeticionInfoREST("12345678P", "123456", 1), String.class);
 		assertThat(response.getBody(), equalTo(
-				"{\"name\":\"Paco\",\"location\":\"43.5479621,-5.9304147\",\"email\":\"paco33@hotmail.com\",\"id\":\"12345678P\",\"kind\":\"Person\",\"kindCode\":1}"));
+				"{\"name\":\"Paco\",\"location\":\"43.5479621,-5.9304147\",\"email\":\"paco@hotmail.com\",\"id\":\"12345678P\",\"kind\":\"Person\",\"kindCode\":1}"));
 
 		// ENTITY
 		response = template.postForEntity(userURI, new PeticionInfoREST("entidad1", "123456", 2), String.class);
@@ -330,7 +330,7 @@ public class MainTest {
 		response = template.postForEntity(userURI, new PeticionChangePasswordREST("", "123456", "123"), String.class);
 		assertThat(response.getBody(), equalTo(emptyEmail));
 	}
-	
+
 	@Test
 	public void T17inValidRequiredPasswordChange() {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
@@ -349,7 +349,7 @@ public class MainTest {
 				String.class);
 		assertThat(response.getBody(), equalTo(wrongEmailStyle));
 	}
-	
+
 	@Test
 	public void T18passwordRequiredPasswordChange() {
 		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
@@ -406,6 +406,7 @@ public class MainTest {
 				new PeticionChangePasswordREST("sensorT@hotmail.com", "123456", "123456"), String.class);
 		assertThat(response.getBody(), equalTo(passwordRequired));
 	}
+
 	//
 	@Test
 	public void T21notFoundAgentPasswordChange() {
@@ -477,74 +478,90 @@ public class MainTest {
 				new PeticionChangeEmailREST("sensorT@hotmail.com", "123456", "sensorTTIS@hotmail.com"), String.class);
 		assertThat(response.getBody(), equalTo(correctChange));
 	}
-	// @Test
-	// public void correctPasswordChange() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/changePassword";
-	// String correctPassword = "{\"agent\":\"12345678P\",\"message\":\"contraseña
-	// actualizada correctamente\"}";
-	//
-	// response = template.postForEntity(userURI, new
-	// PeticionChangePasswordREST("12345678P", "123456", "djfhr"),
-	// String.class);
-	// assertThat(response.getBody(), equalTo(correctPassword));
-	// }
-	//
-	// @Test
-	// public void correctPasswordChangeXML() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/changePassword";
-	// String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\"
-	// standalone=\"yes\"?>"
-	// + "<ChangeInfoResponse><message>contraseña actualizada
-	// correctamente</message>"
-	// + "<agent>persona1</agent></ChangeInfoResponse>";
-	//
-	// List<ClientHttpRequestInterceptor> interceptors = new
-	// ArrayList<ClientHttpRequestInterceptor>();
-	// interceptors.add(new AcceptInterceptor());
-	//
-	// template.setInterceptors(interceptors);
-	//
-	// response = template.postForEntity(userURI, new
-	// PeticionChangePasswordREST("12345678P", "djfhr", "123456"),
-	// String.class);
-	// assertThat(response.getBody(), equalTo(correctChange));
-	// }
-	//
-	// @Test
-	// public void idChangeCorrectXML() {
-	// ResponseEntity<String> response = template.getForEntity(base.toString(),
-	// String.class);
-	// String userURI = base.toString() + "/changeId";
-	// String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\"
-	// standalone=\"yes\"?>"
-	// + "<ChangeInfoResponse><message>id actualizado correctamente</message>"
-	// + "<agent>12345678T</agent></ChangeInfoResponse>";
-	//
-	// List<ClientHttpRequestInterceptor> interceptors = new
-	// ArrayList<ClientHttpRequestInterceptor>();
-	// interceptors.add(new AcceptInterceptor());
-	//
-	// template.setInterceptors(interceptors);
-	//
-	// response = template.postForEntity(userURI, new
-	// PeticionChangeIdREST("12345678P", "123456", "12345678T"),
-	// String.class);
-	// assertThat(response.getBody(), equalTo(correctChange));
-	// }
-	//
-	// // Cabecera HTTP para pedir respuesta en XML
-	// public class AcceptInterceptor implements ClientHttpRequestInterceptor {
-	// @Override
-	// public ClientHttpResponse intercept(HttpRequest request, byte[] body,
-	// ClientHttpRequestExecution execution)
-	// throws IOException {
-	// HttpHeaders headers = request.getHeaders();
-	// headers.setAccept(Arrays.asList(MediaType.APPLICATION_XML));
-	// return execution.execute(request, body);
-	// }
-	// }
+
+	@Test
+	public void T25correctPasswordChange() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/changePassword";
+		String correctPassword = "{\"agent\":\"paco33@hotmail.com\",\"message\":\"contraseña actualizada correctamente\"}";
+
+		response = template.postForEntity(userURI,
+				new PeticionChangePasswordREST("paco33@hotmail.com", "123456", "djfhr"), String.class);
+		assertThat(response.getBody(), equalTo(correctPassword));
+	}
+
+	@Test
+	public void T26correctPasswordChangeXML() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/changePassword";
+		String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ChangeInfoResponse><agent>paco33@hotmail.com</agent><message>contraseÃ±a actualizada correctamente</message></ChangeInfoResponse>";
+
+		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
+		interceptors.add(new AcceptInterceptor());
+
+		template.setInterceptors(interceptors);
+
+		response = template.postForEntity(userURI,
+				new PeticionChangePasswordREST("paco33@hotmail.com", "djfhr", "123456"), String.class);
+		assertThat(response.getBody(), equalTo(correctChange));
+	}
+
+	@Test
+	public void T27idChangeCorrectXML() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/changeEmail";
+		String correctChange = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ChangeInfoResponse><agent>paco@hotmail.com</agent><message>email actualizado correctamente</message></ChangeInfoResponse>";
+
+		List<ClientHttpRequestInterceptor> interceptors = new ArrayList<ClientHttpRequestInterceptor>();
+		interceptors.add(new AcceptInterceptor());
+
+		template.setInterceptors(interceptors);
+
+		response = template.postForEntity(userURI,
+				new PeticionChangeEmailREST("paco33@hotmail.com", "123456", "paco@hotmail.com"), String.class);
+		assertThat(response.getBody(), equalTo(correctChange));
+	}
+
+	@Test
+	public void T28invalidKind() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/user";
+		String emptyId = "{\"reason\": \"Wrong kind style\"}";
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("12354678P", "123456", -6), String.class);
+		assertThat(response.getBody(), equalTo(emptyId));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("sensor1", "123456", 4), String.class);
+		assertThat(response.getBody(), equalTo(emptyId));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("sensor2", "123456", 33), String.class);
+	}
+
+	@Test
+	public void T29EmptyKind() {
+		ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+		String userURI = base.toString() + "/user";
+		String emptyId = "{\"reason\": \"User kind is required\"}";
+		response = template.postForEntity(userURI, new PeticionInfoREST("12354678P", "123456", null), String.class);
+		assertThat(response.getBody(), equalTo(emptyId));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("entidad1", "123456", null), String.class);
+		assertThat(response.getBody(), equalTo(emptyId));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("sensor1", "123456", null), String.class);
+		assertThat(response.getBody(), equalTo(emptyId));
+
+		response = template.postForEntity(userURI, new PeticionInfoREST("sensor2", "123456", null), String.class);
+	}
+
+	// Cabecera HTTP para pedir respuesta en XML
+	public class AcceptInterceptor implements ClientHttpRequestInterceptor {
+		@Override
+		public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)
+				throws IOException {
+			HttpHeaders headers = request.getHeaders();
+			headers.setAccept(Arrays.asList(MediaType.APPLICATION_XML));
+			return execution.execute(request, body);
+		}
+	}
 }
