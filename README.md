@@ -108,7 +108,6 @@ Valor de retorno:
    "kind":"Entity",
    "kindCode":2
 }
-}
 ```
 
 Usuarios de prueba:
