@@ -101,11 +101,27 @@ Para obtener los datos del agente, puedes hacer una petición POST a [localhost:
 Esto debería devolverte una salida en JSON tal que esta que vamos a simular utilizando Curl:
 
 ```
+curl -H "Content-Type: application/json" -X POST -d '{"ident":"entidad1", "password":"123456", "kind":2'} http://localhost:8080/user
 ```
 
+Valor de retorno:
 ```json
 {
-
+{  
+   "name":"Valgrande Pajares",
+   "location":"43.5479621,-5.9304147",
+   "email":"pajares@hotmail.com",
+   "id":"entidad1",
+   "kind":"Entity",
+   "kindCode":2
+}
 }
 ```
+
+Usuarios de prueba:
+ - Nombre:Valgrande Pajares Contraseña:123456 Email:pajares@hotmail.com Identificador:entidad1  Localización:43.5479621,-5.9304147 Tipo:2
+ - Nombre:Estación Fuentes De Invierno Contraseña:123456 Email:fuentes@hotmail.com Identificador:entidad2 Localización:43.5479621,-5.9304147 Tipo:2
+ - Nombre:SensorTemperatura Contraseña:123456 Email:sensorT@hotmail.com Identificador:sensor1 Localización:43.5479621,-5.9304147 Tipo:3
+-- Nombre:SensorHumedad Contraseña:123456 Email:sensorH@hotmail.com Identificador:sensor2 Localización:43.5479621,-5.9304147 Tipo:3
++- Nombre:SensorHumedad Contraseña:123456 Email:sensorH@hotmail.com Identificador:sensor2 Localización:43.5479621,-5.9304147 Tipo:3
 
