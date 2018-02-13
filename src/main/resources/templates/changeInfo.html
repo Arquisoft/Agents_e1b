@@ -7,20 +7,15 @@
 </head>
 <body>
 <h1>Cambiar contraseña</h1>
-<form method="POST" action="confirmPassword" >
-	<table>
-		<tr>
-			<td><strong><label for="password">Contraseña: </label></strong></td>
-			<td><input type="password" name="password" /></td>
-		</tr>
-		<tr>
-			<td><strong><label for="newPassword">Nueva contraseña: </label></strong></td>
-			<td><input type="password" name="newPassword"/></td>
-		</tr>
-		<tr>
-			<td colspan="2"><input type="submit" name="confirmarCambio" value="Confirmar cambio"/></td>
-		</tr>
-	</table>
-</form>
+
+	<div>
+	<form method="POST" action="confirmPassword" >
+	<h2>Contraseña:</h2>
+	<input id="password" name="password" type="password" />
+	<h2>Nueva contraseña:</h2>
+	<input id="newPassword" name="newPassword" type="password" />
+	<input type="submit" name="confirmarCambio" value="Confirmar cambio"/>
+	</form>
+	</div>
 </body>
 </html>
