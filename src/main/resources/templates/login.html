@@ -3,33 +3,26 @@
 <head>
 <meta charset="UTF-8" />
 <title>Login</title>
-<link rel="stylesheet" type="text/css" href="templates/estiloLogin.css" />
 </head>
 <body>
 
-
-
-
-	<div class="testbox">
-		<h1>Registration</h1>
+	<div>
 		<form method="POST" action="login">
-			<br></br>
-			<input type="text" name="ident" id="name" placeholder="Ident"/>
-		  	<input type="password" name="password" id="name" placeholder="Password"/>
-		  
+			<h2>Usuario:</h2>
+			<input id="ident" name="ident" type="text" />
+			<h2>Contraseña:</h2>
+			<input id="password" name="password" type="password" />
+			<br/><br/>
 			<select id="kind"
 				name="kind">
 				<option value="1">Person</option>
 				<option value="2">Entity</option>
 				<option value="3">Sensor</option>
 			</select>
-			
 			<button type="submit" id="login">Entrar</button>
 		</form>
 	</div>
-	
-	
-	
+
 
 </body>
 </html>

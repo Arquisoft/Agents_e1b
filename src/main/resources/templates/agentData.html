@@ -4,45 +4,29 @@
 <head>
  	<meta charset="UTF-8"/>
  	<title>Datos personales</title>
- 	<link rel="stylesheet" type="text/css" href="templates/estiloDatos.css" />
 </head>
 <body>
+<h1>Datos personales</h1>
 
-<div class="testbox">
-	<h1>Datos personales</h1>
-	<br></br>
-	<form class="cEmail" method="POST" action="confirmEmail" >
-		
-		<p><strong>Identificador:</strong> <span th:text="${session.agent.ident}"></span></p>
-		<br></br>
-		<p><strong>Nombre:</strong> <br></br><span th:text="${session.agent.name}"></span></p>
-		<br></br>
-		<p><strong>Email:</strong> <span th:text="${session.agent.email}"></span></p>
-		<br></br>
-		<p><strong>Localización:</strong> <span th:text="${session.agent.location}"></span></p>
-		<br></br>
-		<p><strong>Tipo de agente:</strong> <span th:text="${session.agent.kind}"></span></p>
-		<br></br>
-		<p><strong>Código del tipo de agente:</strong> <span th:text="${session.agent.kindCode}"></span></p>
-		
-		
+	<form method="POST" action="confirmEmail" >
 		<label for="email"><strong>Correo:</strong> </label>
 		<input type="text" name="email" th:value="${session.agent.email}"/>
-		<br></br>
 		<input type="submit" name="cambiarEmail" value="Cambiar email"/>
-		
 	</form>
 	
+	<p><strong>Identificador:</strong> <span th:text="${session.agent.ident}"></span></p>
+	<p><strong>Nombre:</strong> <span th:text="${session.agent.name}"></span></p>
+	<p><strong>Email:</strong> <span th:text="${session.agent.email}"></span></p>
+	<p><strong>Localización:</strong> <span th:text="${session.agent.location}"></span></p>
+	<p><strong>Tipo de agente:</strong> <span th:text="${session.agent.kind}"></span></p>
+	<p><strong>Código del tipo de agente:</strong> <span th:text="${session.agent.kindCode}"></span></p>
 	
-
-		<i><span th:if="${info != null}" th:text="${info}">Info</span></i>
-
+	<i><span th:if="${info != null}" th:text="${info}">Info</span></i>
 	
 	<br/>
 	<br/>
 	<form method="POST" action="changeInfo" >
 		<input type="submit" name="cambiarContraseña" value="Cambiar contraseña"/>
 	</form>
-	</div>
 </body>
 </html>
